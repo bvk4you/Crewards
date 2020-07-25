@@ -7,7 +7,8 @@
 
 import UIKit
 import CoreData
-
+import Firebase
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
         return true
     }
 
@@ -31,7 +34,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            let firebaseAuth = Auth.auth()
+            firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.unknown)
 
+        }
+         func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+            let firebaseAuth = Auth.auth()
+            if (firebaseAuth.canHandleNotification(userInfo)){
+                completionHandler(.noData)
+                print(userInfo)
+                return
+            }
+        }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
