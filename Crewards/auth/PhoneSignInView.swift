@@ -12,8 +12,9 @@ struct PhoneSignInView: View {
         @State var phone: String = ""
         @ObservedObject var textBindingManager = TextBindingManager(limit: 10)
         @ObservedObject var otpBindingManager = TextBindingManager(limit: 6)
+    @State var isPresented = false
 
-
+    @State var degrees = 0.0
        
 
     @EnvironmentObject var session : SessionStore
@@ -24,13 +25,18 @@ struct PhoneSignInView: View {
             Group {
                 content
                     .navigationBarTitle("Crewards")
+            }               .onAppear{
+                self.isPresented.toggle()
             }
+
         }
         
         private var content: some View {
             switch session.state {
             case .idle:
-                return GetOTPView(isLoading:false).eraseToAnyView()
+                return GetOTPView(isLoading:false)
+                .eraseToAnyView()
+
             case .requestedOTP:
                 return GetOTPView(isLoading:true).eraseToAnyView()
 
@@ -52,29 +58,12 @@ struct PhoneSignInView: View {
         GeometryReader { geo in
             
             ZStack{
+               
                 RadialGradient(gradient: Gradient(colors: [Color.black, Color.gray]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
                 VStack {
-                    Group {
-                        Image("cardshome2")
-                            .resizable()
-                            .aspectRatio(contentMode:.fit)
-                            .frame(width:geo.size.width,height:geo.size.height/4)
-                        
-                        Text("Crewards").font(.title).foregroundColor(.white)
-                            .padding(.top, 1)
-                        
-                        
-                        Text("The easiest way to find the best Credit cards!")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.center)
-                            .padding(.top, 10)
-                            
-                            .padding(.bottom, 20)
-                    }
-                    
-                    
+                   
+                        ExtractedView(width:geo.size.width,height:geo.size.height/4)
+
                     
                     Group {
                         
@@ -83,6 +72,8 @@ struct PhoneSignInView: View {
                             .padding(.leading,30)
                             .foregroundColor(.white)
                             .background(Color.clear)
+                        .frame(width: 300, height: 100, alignment: .center)
+
                         
                         //                    CustomInput(text: self.$otpBindingManager.text, name: "Enter OTP")
                         //                        .padding()
@@ -112,11 +103,16 @@ struct PhoneSignInView: View {
                             .padding(.bottom,geo.size.height/8)
                             .disabled(isLoading)
                     }
+                    .padding(.top, 100.0)
+
                 }
+                .padding(.top, 0.0)
+
                 if(isLoading) {
                     Spinner(isAnimating: true, style: .large)
                 }
             }
+            
         }
         
     }
@@ -126,11 +122,21 @@ struct PhoneSignInView: View {
 
         ZStack {
             RadialGradient(gradient: Gradient(colors: [Color.black, Color.gray]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 0, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
+                .zIndex(0)
             VStack(alignment: .center, spacing: 0.0) {
+                if(self.isPresented) {
                 ExtractedView(width:geo.size.width,height:geo.size.height/4)
-                    .padding(.top, 0.0)
-                            
-                    
+                    //.offset(x:0,y:self.isPresented ? 20: 1000)
+                    .transition(AnyTransition.moveUpWardsWhileFadingIn)
+                    //.rotationEffect(self.isPresented ? Angle(degrees:0) : Angle(degrees:45))
+                //.transition(.moveUpWardsWhileFadingIn)
+                    .animation(Animation.easeIn(duration: 0.5))
+                }
+                else
+                {
+                    ExtractedView(width:geo.size.width,height:geo.size.height/4)
+
+                }
                     Group {
                         
                         CustomInput(text: self.$textBindingManager.text, name: "9999999999")
@@ -139,8 +145,6 @@ struct PhoneSignInView: View {
                             .foregroundColor(.white)
                             .background(Color.clear)
                             .frame(width: 300, height: 100, alignment: .center)
-                        
-                        
                         
                         if (self.session.state == .OTPRequestFailed) {
                             InlineAlert(
@@ -163,9 +167,12 @@ struct PhoneSignInView: View {
                         )
                             .padding(.bottom,geo.size.height/8)
                             .disabled(self.textBindingManager.text.count < 10)
+
                     }
                     .padding(.top, 100.0)
                 }
+                .zIndex(1)
+
             .padding(.top, 0.0)
                 
                 if(isLoading) {
@@ -173,6 +180,7 @@ struct PhoneSignInView: View {
                 }
                 
         }
+
         }
     }
 }
@@ -184,10 +192,16 @@ struct PhoneSignInView_Previews: PreviewProvider {
         PhoneSignInView()
     }
 }
+extension AnyTransition {
+    static var moveUpWardsWhileFadingIn: AnyTransition {
+        return AnyTransition.move(edge: .bottom).combined(with: .opacity)
+    }
+}
 
 struct ExtractedView: View {
     var width:CGFloat
     var height: CGFloat
+    @State var opac=0.0
     var body: some View {
         Group {
         Image("cardshome2")
@@ -197,16 +211,21 @@ struct ExtractedView: View {
             .background(Color.clear)
             .cornerRadius(20)
             .shadow(radius: 20)
-        
+
         Text("Crewards").font(.title).foregroundColor(.white)
-        
+
+
         
         Text("The easiest way to find the best Credit cards!")
             .font(.subheadline)
             .foregroundColor(.gray)
             .lineLimit(nil)
             .multilineTextAlignment(.center)
+            
+        
         }
+        
     }
+
     
 }
