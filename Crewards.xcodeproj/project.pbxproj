@@ -12,6 +12,12 @@
 		141E377524C75F0C00B7B4B6 /* CCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E377224C75F0C00B7B4B6 /* CCData.swift */; };
 		145002B224CADD16008C9A8E /* NumberTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B124CADD16008C9A8E /* NumberTextFieldViewModel.swift */; };
 		145002B424CAE4F3008C9A8E /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B324CAE4F3008C9A8E /* TextEditor.swift */; };
+		145002BA24CDCB24008C9A8E /* CardBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B724CDCB24008C9A8E /* CardBrand.swift */; };
+		145002BB24CDCB24008C9A8E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B824CDCB24008C9A8E /* Card.swift */; };
+		145002BC24CDCB24008C9A8E /* CardBrand+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */; };
+		145002BE24CDCB34008C9A8E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002BD24CDCB34008C9A8E /* CardView.swift */; };
+		145002C024CDD4B1008C9A8E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002BF24CDD4B1008C9A8E /* HomeView.swift */; };
+		145002D324CDDBCB008C9A8E /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002D224CDDBCB008C9A8E /* CardsList.swift */; };
 		14A768E324C8809200D737D7 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E224C8809200D737D7 /* SessionInfo.swift */; };
 		14A768E724C880A500D737D7 /* InlineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E624C880A500D737D7 /* InlineAlert.swift */; };
 		14A768E924C880AB00D737D7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E824C880AB00D737D7 /* Session.swift */; };
@@ -69,6 +75,12 @@
 		141E377224C75F0C00B7B4B6 /* CCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCData.swift; sourceTree = "<group>"; };
 		145002B124CADD16008C9A8E /* NumberTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldViewModel.swift; sourceTree = "<group>"; };
 		145002B324CAE4F3008C9A8E /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
+		145002B724CDCB24008C9A8E /* CardBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBrand.swift; sourceTree = "<group>"; };
+		145002B824CDCB24008C9A8E /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CardBrand+SwiftUI.swift"; sourceTree = "<group>"; };
+		145002BD24CDCB34008C9A8E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		145002BF24CDD4B1008C9A8E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		145002D224CDDBCB008C9A8E /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
 		14A768E224C8809200D737D7 /* SessionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		14A768E624C880A500D737D7 /* InlineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAlert.swift; sourceTree = "<group>"; };
 		14A768E824C880AB00D737D7 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -175,6 +187,16 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		145002B624CDCB19008C9A8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				145002B824CDCB24008C9A8E /* Card.swift */,
+				145002B724CDCB24008C9A8E /* CardBrand.swift */,
+				145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		14A768F424C89E1700D737D7 /* auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +221,7 @@
 				14A7690324C99D2F00D737D7 /* Spinner.swift */,
 				14A768EC24C880B700D737D7 /* CustomInput.swift */,
 				14A768E624C880A500D737D7 /* InlineAlert.swift */,
+				145002BD24CDCB34008C9A8E /* CardView.swift */,
 				145002B124CADD16008C9A8E /* NumberTextFieldViewModel.swift */,
 				145002B324CAE4F3008C9A8E /* TextEditor.swift */,
 				14A768FC24C9748700D737D7 /* KeyboardAdaptive.swift */,
@@ -255,11 +278,14 @@
 		14A8D90324C701F9007CD350 /* Crewards */ = {
 			isa = PBXGroup;
 			children = (
+				145002B624CDCB19008C9A8E /* Models */,
 				145002B524CB1B02008C9A8E /* ViewModels */,
 				14A7690C24C99D9F00D737D7 /* Extensions */,
 				14A7690224C99D2F00D737D7 /* Controls */,
 				14A768F424C89E1700D737D7 /* auth */,
 				14A8D90B24C701F9007CD350 /* ContentView.swift */,
+				145002D224CDDBCB008C9A8E /* CardsList.swift */,
+				145002BF24CDD4B1008C9A8E /* HomeView.swift */,
 				14A768EE24C8813100D737D7 /* AppView.swift */,
 				14A8D90424C701F9007CD350 /* AppDelegate.swift */,
 				14A8D90624C701F9007CD350 /* SceneDelegate.swift */,
@@ -543,6 +569,8 @@
 				145002B224CADD16008C9A8E /* NumberTextFieldViewModel.swift in Sources */,
 				14A768E724C880A500D737D7 /* InlineAlert.swift in Sources */,
 				14A768F824C8CAC400D737D7 /* System.swift in Sources */,
+				145002BE24CDCB34008C9A8E /* CardView.swift in Sources */,
+				145002BC24CDCB24008C9A8E /* CardBrand+SwiftUI.swift in Sources */,
 				14A768FD24C9748700D737D7 /* UIResponder+Current.swift in Sources */,
 				14A7691024CAC4F900D737D7 /* GradientButtonStyle.swift in Sources */,
 				14A7690B24C99D2F00D737D7 /* AsyncImage.swift in Sources */,
@@ -553,14 +581,18 @@
 				14A7690824C99D2F00D737D7 /* Spinner.swift in Sources */,
 				14A768E924C880AB00D737D7 /* Session.swift in Sources */,
 				145002B424CAE4F3008C9A8E /* TextEditor.swift in Sources */,
+				145002C024CDD4B1008C9A8E /* HomeView.swift in Sources */,
 				14A768ED24C880B700D737D7 /* CustomInput.swift in Sources */,
 				14A7690A24C99D2F00D737D7 /* ImageLoader.swift in Sources */,
+				145002D324CDDBCB008C9A8E /* CardsList.swift in Sources */,
 				14A768FE24C9748700D737D7 /* KeyboardHeightPublisher.swift in Sources */,
 				14A7690924C99D2F00D737D7 /* ImageCache.swift in Sources */,
 				14A768EB24C880B200D737D7 /* CustomButton.swift in Sources */,
 				14A768EF24C8813100D737D7 /* AppView.swift in Sources */,
+				145002BA24CDCB24008C9A8E /* CardBrand.swift in Sources */,
 				14A8D90C24C701F9007CD350 /* ContentView.swift in Sources */,
 				14A8D90A24C701F9007CD350 /* Crewards.xcdatamodeld in Sources */,
+				145002BB24CDCB24008C9A8E /* Card.swift in Sources */,
 				14A768FF24C9748700D737D7 /* KeyboardAdaptive.swift in Sources */,
 				141E377324C75F0C00B7B4B6 /* CCData.swift in Sources */,
 				14A7690E24C99D9F00D737D7 /* View+Ext.swift in Sources */,
