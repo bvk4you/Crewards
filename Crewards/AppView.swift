@@ -13,7 +13,8 @@ struct AppView : View {
     @EnvironmentObject var session: SessionStore
     @ObservedObject var recipeStore = RecipeStore()
     @State var query = ""
-    
+    @Environment(\.presentationMode) var presentationMode
+
     
     func fetchRecipes () {
         print("Fetching recipes")
@@ -24,7 +25,7 @@ struct AppView : View {
     var body: some View {
         
         
-        return NavigationView {
+       // return NavigationView {
             
             List {
                 Section() {
@@ -45,33 +46,36 @@ struct AppView : View {
 //                }
             }
                 .navigationBarTitle(Text("Crewards"), displayMode: .inline)
-                .navigationBarItems(leading: NavigationLink(destination: SessionInfo().environmentObject(session)) {
-                    Image(systemName: "person.crop.circle")
-                        .imageScale(.large)
-                        .accessibility(label: Text("user profile"))
-                    
-                    },
-                    
-                    trailing: HStack(spacing: 24) {
-                        Button(action: { print("search") }) {
-                            Image(systemName: "magnifyingglass")
-                                .imageScale(.large)
-                                .accessibility(label: Text("search recipes"))
-                            
-                        }
-//                        NavigationLink(destination: ComposeRecipe()) {
-//                            Image(systemName: "square.and.pencil")
+//                .navigationBarItems(leading: NavigationLink(destination: SessionInfo().environmentObject(session)) {
+//                    Image(systemName: "person.crop.circle")
+//                        .imageScale(.large)
+//                        .accessibility(label: Text("user profile"))
+//
+//                    },
+//
+//                    trailing: HStack(spacing: 24) {
+//                        Button(action: { print("search") }) {
+//                            Image(systemName: "magnifyingglass")
 //                                .imageScale(.large)
-//                                .accessibility(label: Text("Add recipe"))
+//                                .accessibility(label: Text("search recipes"))
 //
 //                        }
-                      
-                    }
-            )
+////                        NavigationLink(destination: ComposeRecipe()) {
+////                            Image(systemName: "square.and.pencil")
+////                                .imageScale(.large)
+////                                .accessibility(label: Text("Add recipe"))
+////
+////                        }
+//
+//                    }
+//            )
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: Button("Back"){self.presentationMode.wrappedValue.dismiss()})
+
             
         
           
-        }
+      //  }
         .onAppear {
             self.fetchRecipes()
             }
