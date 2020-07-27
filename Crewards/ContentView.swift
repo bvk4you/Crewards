@@ -21,10 +21,11 @@ struct ContentView : View {
 
         Group {
             if (self.session.session != nil) {
-                AppView()
+                HomeView()
             } else {
                 self.signInView
                 .background(Color.black)
+                .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 .edgesIgnoringSafeArea([.all])
 
             }
