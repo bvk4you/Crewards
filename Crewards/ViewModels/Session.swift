@@ -66,9 +66,7 @@ extension SessionStore {
 class SessionStore : ObservableObject {
     @Published private(set) var state = State.idle
     var didChange = PassthroughSubject<SessionStore, Never>()
-    @Published var isLoggedIn = false { didSet { self.didChange.send(self) }}
     @Published var session: User? { didSet { self.didChange.send(self) }}
-    @Published var receivedOTP = false { didSet { self.didChange.send(self) }}
     private var verificationID: String?
 
     var handle: AuthStateDidChangeListenerHandle?
@@ -90,7 +88,6 @@ class SessionStore : ObservableObject {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 print("Got user \(user)")
-                self.isLoggedIn = true
                 self.session = User(
                     uid: user.uid,
                     displayName: user.displayName,
@@ -98,9 +95,7 @@ class SessionStore : ObservableObject {
                     photoURL: user.photoURL
                 )
             } else {
-                self.isLoggedIn = false
                 self.session = nil
-                self.receivedOTP = false
                 self.state = State.idle
             }
         }
@@ -147,7 +142,6 @@ class SessionStore : ObservableObject {
     }
     func getOTP(phoneNumber: String, completion: @escaping (String?,Error?) -> Void) -> Void {
         print("getOTP phoneNumber:\(phoneNumber)")
-        self.receivedOTP = false
         self.state = State.requestedOTP
 
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
@@ -160,7 +154,6 @@ class SessionStore : ObservableObject {
           }
           // Sign in using the verificationID and the code sent to the user
           // ...
-            self.receivedOTP = true
             self.verificationID = verificationID
             self.state = State.OTPReceived
 
