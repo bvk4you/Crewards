@@ -10,7 +10,8 @@ target 'Crewards' do
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
   target 'CrewardsTests' do
     inherit! :search_paths
