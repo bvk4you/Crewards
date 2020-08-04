@@ -33,7 +33,7 @@ struct TabbarView: View {
             CardsList().tabItem{
                 self.tabbarItem(text: "Home", image: "film")
             }.tag(Tab.home)
-            PhoneSignInView().tabItem{
+            AppView().tabItem{
                 self.tabbarItem(text: "Discover", image: "square.stack")
             }.tag(Tab.discover)
             AppView().tabItem{
