@@ -3,21 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		141E377324C75F0C00B7B4B6 /* CCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E377224C75F0C00B7B4B6 /* CCData.swift */; };
 		141E377424C75F0C00B7B4B6 /* CCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E377224C75F0C00B7B4B6 /* CCData.swift */; };
 		141E377524C75F0C00B7B4B6 /* CCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141E377224C75F0C00B7B4B6 /* CCData.swift */; };
+		144BDA8E24D30F4200FF9085 /* CardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144BDA8D24D30F4200FF9085 /* CardModels.swift */; };
+		144BDA9124D48B9D00FF9085 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 144BDA9024D48B9D00FF9085 /* SDWebImageSwiftUI */; };
+		144BDA9324D5752300FF9085 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144BDA9224D5752300FF9085 /* Color+Ext.swift */; };
 		145002B224CADD16008C9A8E /* NumberTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B124CADD16008C9A8E /* NumberTextFieldViewModel.swift */; };
 		145002B424CAE4F3008C9A8E /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B324CAE4F3008C9A8E /* TextEditor.swift */; };
-		145002BA24CDCB24008C9A8E /* CardBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B724CDCB24008C9A8E /* CardBrand.swift */; };
-		145002BB24CDCB24008C9A8E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B824CDCB24008C9A8E /* Card.swift */; };
-		145002BC24CDCB24008C9A8E /* CardBrand+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */; };
 		145002BE24CDCB34008C9A8E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002BD24CDCB34008C9A8E /* CardView.swift */; };
 		145002C024CDD4B1008C9A8E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002BF24CDD4B1008C9A8E /* HomeView.swift */; };
 		145002D324CDDBCB008C9A8E /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002D224CDDBCB008C9A8E /* CardsList.swift */; };
+		147D3D6C24D2D25200DAFF48 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D3D6B24D2D25200DAFF48 /* Collection+Ext.swift */; };
 		14A768E324C8809200D737D7 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E224C8809200D737D7 /* SessionInfo.swift */; };
 		14A768E724C880A500D737D7 /* InlineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E624C880A500D737D7 /* InlineAlert.swift */; };
 		14A768E924C880AB00D737D7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E824C880AB00D737D7 /* Session.swift */; };
@@ -47,6 +48,11 @@
 		14A8D91F24C701FB007CD350 /* CrewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8D91E24C701FB007CD350 /* CrewardsTests.swift */; };
 		14A8D92A24C701FB007CD350 /* CrewardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8D92924C701FB007CD350 /* CrewardsUITests.swift */; };
 		14A8D93824C70220007CD350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14A8D93724C70220007CD350 /* GoogleService-Info.plist */; };
+		14B2209C24D82F66004DC9FB /* SBIPrime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209B24D82F65004DC9FB /* SBIPrime.swift */; };
+		14B2209E24D83033004DC9FB /* HDFCInfinia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209D24D83033004DC9FB /* HDFCInfinia.swift */; };
+		14B220A024D83075004DC9FB /* HDFCRegalia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209F24D83075004DC9FB /* HDFCRegalia.swift */; };
+		14B220A224D83181004DC9FB /* ICICIEmeralde.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B220A124D83181004DC9FB /* ICICIEmeralde.swift */; };
+		14B220A524D88C53004DC9FB /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 14B220A424D88C53004DC9FB /* SkeletonUI */; };
 		2657E4D242B51D155D3253F6 /* Pods_Crewards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8169F54FAC19C1A911BB3D /* Pods_Crewards.framework */; };
 		299D68FCA929B7698BDA9E11 /* Pods_CrewardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2511C199703203A25FE271CC /* Pods_CrewardsTests.framework */; };
 		6426FCE6BAD75CA622D50E54 /* Pods_Crewards_CrewardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B239529A61A407A33E9205 /* Pods_Crewards_CrewardsUITests.framework */; };
@@ -73,14 +79,14 @@
 		09A9968E4488D3BBF77C9F5A /* Pods-Crewards-CrewardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crewards-CrewardsUITests.release.xcconfig"; path = "Target Support Files/Pods-Crewards-CrewardsUITests/Pods-Crewards-CrewardsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		11B239529A61A407A33E9205 /* Pods_Crewards_CrewardsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crewards_CrewardsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		141E377224C75F0C00B7B4B6 /* CCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCData.swift; sourceTree = "<group>"; };
+		144BDA8D24D30F4200FF9085 /* CardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModels.swift; sourceTree = "<group>"; };
+		144BDA9224D5752300FF9085 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		145002B124CADD16008C9A8E /* NumberTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextFieldViewModel.swift; sourceTree = "<group>"; };
 		145002B324CAE4F3008C9A8E /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
-		145002B724CDCB24008C9A8E /* CardBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBrand.swift; sourceTree = "<group>"; };
-		145002B824CDCB24008C9A8E /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CardBrand+SwiftUI.swift"; sourceTree = "<group>"; };
 		145002BD24CDCB34008C9A8E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		145002BF24CDD4B1008C9A8E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		145002D224CDDBCB008C9A8E /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
+		147D3D6B24D2D25200DAFF48 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
 		14A768E224C8809200D737D7 /* SessionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		14A768E624C880A500D737D7 /* InlineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAlert.swift; sourceTree = "<group>"; };
 		14A768E824C880AB00D737D7 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -117,6 +123,10 @@
 		14A8D92B24C701FB007CD350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A8D93724C70220007CD350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14A8D93B24C71FD7007CD350 /* Crewards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Crewards.entitlements; sourceTree = "<group>"; };
+		14B2209B24D82F65004DC9FB /* SBIPrime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBIPrime.swift; sourceTree = "<group>"; };
+		14B2209D24D83033004DC9FB /* HDFCInfinia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFCInfinia.swift; sourceTree = "<group>"; };
+		14B2209F24D83075004DC9FB /* HDFCRegalia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFCRegalia.swift; sourceTree = "<group>"; };
+		14B220A124D83181004DC9FB /* ICICIEmeralde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICICIEmeralde.swift; sourceTree = "<group>"; };
 		18E6440CD71CFFF9D280778E /* Pods-CrewardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewardsTests.release.xcconfig"; path = "Target Support Files/Pods-CrewardsTests/Pods-CrewardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		249799BEDB931FECB4CB2C58 /* Pods-CrewardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewardsTests.debug.xcconfig"; path = "Target Support Files/Pods-CrewardsTests/Pods-CrewardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2511C199703203A25FE271CC /* Pods_CrewardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144BDA9124D48B9D00FF9085 /* SDWebImageSwiftUI in Frameworks */,
+				14B220A524D88C53004DC9FB /* SkeletonUI in Frameworks */,
 				2657E4D242B51D155D3253F6 /* Pods_Crewards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,9 +202,7 @@
 		145002B624CDCB19008C9A8E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				145002B824CDCB24008C9A8E /* Card.swift */,
-				145002B724CDCB24008C9A8E /* CardBrand.swift */,
-				145002B924CDCB24008C9A8E /* CardBrand+SwiftUI.swift */,
+				144BDA8D24D30F4200FF9085 /* CardModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,8 +256,10 @@
 			isa = PBXGroup;
 			children = (
 				14A7690D24C99D9F00D737D7 /* View+Ext.swift */,
+				144BDA9224D5752300FF9085 /* Color+Ext.swift */,
 				14A768FB24C9748600D737D7 /* KeyboardHeightPublisher.swift */,
 				14A768FA24C9748600D737D7 /* UIResponder+Current.swift */,
+				147D3D6B24D2D25200DAFF48 /* Collection+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +290,7 @@
 		14A8D90324C701F9007CD350 /* Crewards */ = {
 			isa = PBXGroup;
 			children = (
+				14B2209A24D82F48004DC9FB /* FireStoreData */,
 				145002B624CDCB19008C9A8E /* Models */,
 				145002B524CB1B02008C9A8E /* ViewModels */,
 				14A7690C24C99D9F00D737D7 /* Extensions */,
@@ -326,6 +339,17 @@
 			path = CrewardsUITests;
 			sourceTree = "<group>";
 		};
+		14B2209A24D82F48004DC9FB /* FireStoreData */ = {
+			isa = PBXGroup;
+			children = (
+				14B2209B24D82F65004DC9FB /* SBIPrime.swift */,
+				14B2209D24D83033004DC9FB /* HDFCInfinia.swift */,
+				14B2209F24D83075004DC9FB /* HDFCRegalia.swift */,
+				14B220A124D83181004DC9FB /* ICICIEmeralde.swift */,
+			);
+			path = FireStoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +368,10 @@
 			dependencies = (
 			);
 			name = Crewards;
+			packageProductDependencies = (
+				144BDA9024D48B9D00FF9085 /* SDWebImageSwiftUI */,
+				14B220A424D88C53004DC9FB /* SkeletonUI */,
+			);
 			productName = Crewards;
 			productReference = 14A8D90124C701F9007CD350 /* Crewards.app */;
 			productType = "com.apple.product-type.application";
@@ -418,6 +446,10 @@
 				Base,
 			);
 			mainGroup = 14A8D8F824C701F9007CD350;
+			packageReferences = (
+				144BDA8F24D48B9D00FF9085 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				14B220A324D88C53004DC9FB /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+			);
 			productRefGroup = 14A8D90224C701F9007CD350 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -566,11 +598,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A768F924C8CAC400D737D7 /* Feedback.swift in Sources */,
+				144BDA8E24D30F4200FF9085 /* CardModels.swift in Sources */,
 				145002B224CADD16008C9A8E /* NumberTextFieldViewModel.swift in Sources */,
 				14A768E724C880A500D737D7 /* InlineAlert.swift in Sources */,
 				14A768F824C8CAC400D737D7 /* System.swift in Sources */,
 				145002BE24CDCB34008C9A8E /* CardView.swift in Sources */,
-				145002BC24CDCB24008C9A8E /* CardBrand+SwiftUI.swift in Sources */,
 				14A768FD24C9748700D737D7 /* UIResponder+Current.swift in Sources */,
 				14A7691024CAC4F900D737D7 /* GradientButtonStyle.swift in Sources */,
 				14A7690B24C99D2F00D737D7 /* AsyncImage.swift in Sources */,
@@ -584,15 +616,19 @@
 				145002C024CDD4B1008C9A8E /* HomeView.swift in Sources */,
 				14A768ED24C880B700D737D7 /* CustomInput.swift in Sources */,
 				14A7690A24C99D2F00D737D7 /* ImageLoader.swift in Sources */,
+				14B2209E24D83033004DC9FB /* HDFCInfinia.swift in Sources */,
 				145002D324CDDBCB008C9A8E /* CardsList.swift in Sources */,
 				14A768FE24C9748700D737D7 /* KeyboardHeightPublisher.swift in Sources */,
 				14A7690924C99D2F00D737D7 /* ImageCache.swift in Sources */,
 				14A768EB24C880B200D737D7 /* CustomButton.swift in Sources */,
+				14B2209C24D82F66004DC9FB /* SBIPrime.swift in Sources */,
+				14B220A024D83075004DC9FB /* HDFCRegalia.swift in Sources */,
 				14A768EF24C8813100D737D7 /* AppView.swift in Sources */,
-				145002BA24CDCB24008C9A8E /* CardBrand.swift in Sources */,
+				14B220A224D83181004DC9FB /* ICICIEmeralde.swift in Sources */,
 				14A8D90C24C701F9007CD350 /* ContentView.swift in Sources */,
+				147D3D6C24D2D25200DAFF48 /* Collection+Ext.swift in Sources */,
 				14A8D90A24C701F9007CD350 /* Crewards.xcdatamodeld in Sources */,
-				145002BB24CDCB24008C9A8E /* Card.swift in Sources */,
+				144BDA9324D5752300FF9085 /* Color+Ext.swift in Sources */,
 				14A768FF24C9748700D737D7 /* KeyboardAdaptive.swift in Sources */,
 				141E377324C75F0C00B7B4B6 /* CCData.swift in Sources */,
 				14A7690E24C99D9F00D737D7 /* View+Ext.swift in Sources */,
@@ -945,6 +981,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		144BDA8F24D48B9D00FF9085 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		14B220A324D88C53004DC9FB /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		144BDA9024D48B9D00FF9085 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 144BDA8F24D48B9D00FF9085 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		14B220A424D88C53004DC9FB /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14B220A324D88C53004DC9FB /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		14A8D90824C701F9007CD350 /* Crewards.xcdatamodeld */ = {
