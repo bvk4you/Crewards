@@ -8,22 +8,68 @@
 import Foundation
 import Combine
 import Firebase
-class CCData: ObservableObject{
-    var ref: DatabaseReference  = Database.database().reference()
+import FirebaseFirestoreSwift
 
+class CCData: ObservableObject{
+    let db  = Firestore.firestore()
+   // @Published var crewards: CrewardsModel?
+    @Published var cards:[Card]
     
+    init() {
+        cards = []
+    }
+    func getEmptyCard()->Card{
+    return Card(
+        title: "",id: -1,gracePeriod: "20-50", bank: "", interestPerMonth: 3.35,creditLimit: 0,
+
+              partners: [],
+              contactLess: true,
+              eligibility: Eligibility(income: 0, ITR: 0, description: "N/A"),
+              brand: ["visa","master"],
+              categories: [],
+              tier: [],
+              fees: Fees(joiningFees: 2999, renewalFees: 2999, welcomeRewards: WelcomeRewards(cashback: 0, points: 0, pointsValueinINR: 0, description: ""), waiverCondition: "Joining/Renewal Fee: Rs.2,999+Tax (Renewal Fee Waived on 3 Lakh spend)"),
+
+              foreignTransactions: ForeignTransactions(markupFees: 3.5, rewardRate: 0.5),
+              insurance: Insurance(creditShield: 100000, airDeath: 5000000, medicalAbroad: 0),
+              rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:5.0,maxRate:0.5,utilityBills:5,expiryTime:0),
+
+              benefits: Benefits(
+                   vouchers:[],
+                      loungeAccess:LoungeAccess(domesticAirports: LoungeDetails(charges: 0, freeVisitsPerQuarter: 2, freeVisitsPerYear: 8, unlimited: false, supplementaryBenefit: false, condtions: "Offer is valid for Primary Cardholders only",programOffering: "VISA/Mastercard"),
+                          internationalAirports:[] )),
+              highlightedColor: BrandColor(r: 1, g: 1, b: 1, alpha: 1.0),
+              shadowColor: BrandColor(r:0.5,g:0.5,b:0.5,alpha: 1.0),
+              gradientColor:[BrandColor(r: 0.149, g: 0.247, b: 0.623, alpha: 1.0),
+                             BrandColor(r: 0.682, g: 0.301, b: 1, alpha: 1.0)]
+              
+              )
+    }
+    
+   func addNewCards()
+   {
+        SBIPrime().create()
+        HDFCInfinia().create()
+        HDFCRegalia().create()
+        ICICIEmeralde().create()
+    }
     func load()
     {
-        ref.observe(.value ) { (snapshot) in
-          // Get user value
-            
-          let value = snapshot.value as? NSDictionary
-            for child in snapshot.children {
-                print("child  \(child)")
-             }
-            print("database returned \(value)")
-          // ...
-          }
+        db.collection("Cards").getDocuments() { (querySnapshot, err) in
+            guard let documents = querySnapshot?.documents else {
+              print("No documents")
+              return
+            }
+            for document in querySnapshot!.documents {
+                           print("\(document.documentID) => \(document.data())")
+                
+                       }
+            self.cards = documents.compactMap { queryDocumentSnapshot -> Card? in
+              return try? queryDocumentSnapshot.data(as: Card.self)
+            }
+
+        }
+        
     }
     
 }
