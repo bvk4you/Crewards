@@ -25,8 +25,8 @@ struct AppView : View {
     var body: some View {
         
         
-       // return NavigationView {
-            
+        return
+            NavigationView {
             List {
                 Section() {
                     NavigationLink(destination: Text("Hello")) {
@@ -70,17 +70,23 @@ struct AppView : View {
 //                    }
 //            )
                 .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: Button("Back"){self.presentationMode.wrappedValue.dismiss()})
+                .navigationBarItems(leading: Button("Back"){self.presentationMode.wrappedValue.dismiss()},
+                                    trailing: NavigationLink(destination: SessionInfo().environmentObject(session)) {
+                                                        Image(systemName: "person.crop.circle")
+                                                            .imageScale(.large)
+                                                            .accessibility(label: Text("user profile"))
+                                    
+                                                        })
+
 
             
         
           
-      //  }
+       }
         .onAppear {
             self.fetchRecipes()
             }
-
-    }
+                                                                                                                                                                                                                                                                  }
 }
 
 #if DEBUG
