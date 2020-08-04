@@ -13,6 +13,7 @@ struct PhoneSignInView: View {
         @ObservedObject var textBindingManager = TextBindingManager(limit: 10)
         @ObservedObject var otpBindingManager = TextBindingManager(limit: 6)
     @State var isPresented = false
+   // @ObservedObject var ccData = CCData()
 
     @State var degrees = 0.0
        
@@ -25,8 +26,9 @@ struct PhoneSignInView: View {
             Group {
                 content
                     .navigationBarTitle("Crewards")
-            }               .onAppear{
+            } .onAppear{
                 self.isPresented.toggle()
+                //self.ccData.load()
             }
 
         }
@@ -59,7 +61,7 @@ struct PhoneSignInView: View {
             
             ZStack{
                
-                RadialGradient(gradient: Gradient(colors: [Color.black, Color.gray]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
+                RadialGradient(gradient: Gradient(colors: [Color(.systemBackground), Color(.secondarySystemBackground)]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 0, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
                 VStack {
                    
                         ExtractedView(width:geo.size.width,height:geo.size.height/4)
@@ -70,16 +72,10 @@ struct PhoneSignInView: View {
                         CustomInput(text: self.$otpBindingManager.text, name: "123456")
                             .padding(.bottom,geo.size.height/8)
                             .padding(.leading,30)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .background(Color.clear)
                         .frame(width: 300, height: 100, alignment: .center)
 
-                        
-                        //                    CustomInput(text: self.$otpBindingManager.text, name: "Enter OTP")
-                        //                        .padding()
-                        //                        .foregroundColor(self.colorScheme == .dark ? .white : .black)
-                        //                        .background(self.colorScheme == .dark ? Color.gray : .white)
-                        
                         
                         
                         if (self.session.state == .validationFailed) {
@@ -121,7 +117,7 @@ struct PhoneSignInView: View {
         GeometryReader { geo in
 
         ZStack {
-            RadialGradient(gradient: Gradient(colors: [Color.black, Color.gray]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 0, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
+            RadialGradient(gradient: Gradient(colors: [Color(.systemBackground), Color(.secondarySystemBackground)]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: 0, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/)
                 .zIndex(0)
             VStack(alignment: .center, spacing: 0.0) {
                 if(self.isPresented) {
@@ -142,7 +138,7 @@ struct PhoneSignInView: View {
                         CustomInput(text: self.$textBindingManager.text, name: "9999999999")
                             .padding(.bottom,geo.size.height/8)
                             .padding(.horizontal, 50.0)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.primary)
                             .background(Color.clear)
                             .frame(width: 300, height: 100, alignment: .center)
                         
@@ -212,13 +208,13 @@ struct ExtractedView: View {
             .cornerRadius(20)
             .shadow(radius: 20)
 
-        Text("Crewards").font(.title).foregroundColor(.white)
+        Text("Crewards").font(.title).foregroundColor(.primary)
 
 
         
         Text("The easiest way to find the best Credit cards!")
             .font(.subheadline)
-            .foregroundColor(.gray)
+            .foregroundColor(.secondary)
             .lineLimit(nil)
             .multilineTextAlignment(.center)
             

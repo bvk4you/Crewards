@@ -24,7 +24,7 @@ struct ContentView : View {
                 HomeView()
             } else {
                 self.signInView
-                .background(Color.black)
+                    .background(Color(.red))
                 .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 .edgesIgnoringSafeArea([.all])
 
