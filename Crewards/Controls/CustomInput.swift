@@ -23,7 +23,7 @@ struct CustomInput : View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-            if text.isEmpty { Text(name).foregroundColor(.white)
+            if text.isEmpty { Text(name).foregroundColor(.primary)
                 .opacity(0.3)
                 .font(Font.title.bold())
 

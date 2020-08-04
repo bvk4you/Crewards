@@ -23,7 +23,6 @@ struct CustomButton : View {
                 HStack {
                     Text(label)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
                     //.padding(UIEdgeInsets(top:0,left: 20,bottom:8,right:20))
 
             };

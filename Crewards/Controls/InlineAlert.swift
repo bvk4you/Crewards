@@ -26,7 +26,7 @@ struct InlineAlert : View {
             
                 Image(systemName: "exclamationmark.triangle.fill")
                     .padding(.vertical)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.primary)
             
             
             
@@ -35,7 +35,7 @@ struct InlineAlert : View {
                 VStack(alignment: .leading) {
                     Text(self.title)
                         .font(.body)
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
@@ -44,7 +44,7 @@ struct InlineAlert : View {
                     if (self.subtitle != nil) {
                         Text(self.subtitle!)
                             .font(.body)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(nil)
 
