@@ -38,6 +38,7 @@ struct User {
 
 extension SessionStore {
     enum State : Equatable {
+        case config
         case idle
         case requestedOTP
         case OTPRequestFailed
@@ -76,7 +77,9 @@ class SessionStore : ObservableObject {
     private let input = PassthroughSubject<Event, Never>()
     
     init() {
+        self.state = .config
     }
+    
     
     
    

@@ -12,9 +12,6 @@ struct ContentView : View {
     @EnvironmentObject var session : SessionStore
     var signInView = PhoneSignInView()
     
-    func getUser () {
-        session.listen()
-    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,7 +29,6 @@ struct ContentView : View {
         }
         }
         .onAppear {
-            self.getUser()
             if(self.session.session == nil)
             {
                 self.signInView.textBindingManager.text = ""

@@ -35,6 +35,8 @@ struct PhoneSignInView: View {
         
         private var content: some View {
             switch session.state {
+            case .config:
+                return EmptyView().eraseToAnyView()
             case .idle:
                 return GetOTPView(isLoading:false)
                 .eraseToAnyView()
