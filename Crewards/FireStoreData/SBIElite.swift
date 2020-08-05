@@ -1,5 +1,5 @@
 //
-//  ICICIEmeralde.swift
+//  SBIPrime.swift
 //  Crewards
 //
 //  Created by vabhaske on 03/08/20.
@@ -10,18 +10,18 @@ import Firebase
 import FirebaseFirestoreSwift
 
 
-struct ICICIEmeralde {
+struct SBIElite {
     let db  = Firestore.firestore()
 
     func create()->Void{
             var newCard = Card(
-                title: "Emeralde",id: 4,gracePeriod: "20-50", bank: "ICICI", interestPerMonth: 3.35,creditLimit: 0,
+                title: "Elite",id: 8,gracePeriod: "20-50", bank: "SBI", interestPerMonth: 3.35,creditLimit: 0,
 
                       partners: [],
                       contactLess: true,
                       eligibility: Eligibility(income: 0, ITR: 0, description: "N/A"),
                       brand: ["visa","master"],
-                      categories: [CardCategory.shopping,CardCategory.flights,CardCategory.hotels,CardCategory.insurance],
+                      categories: [CardCategory.grocery,CardCategory.shopping,CardCategory.flights,CardCategory.hotels,CardCategory.insurance],
                       tier: ["premium"],
                       fees: Fees(joiningFees: 2999, renewalFees: 2999, welcomeRewards: WelcomeRewards(cashback: 0, points: 0, pointsValueinINR: 0, description: ""), waiverCondition: "Joining/Renewal Fee: Rs.2,999+Tax (Renewal Fee Waived on 3 Lakh spend)"),
 
@@ -40,11 +40,11 @@ struct ICICIEmeralde {
                                       LoungeDetails(charges: 28, freeVisitsPerQuarter: 2, freeVisitsPerYear: 4, unlimited: false, supplementaryBenefit: false, condtions: "Offer is valid for Primary Cardholders only",programOffering: "Priority Pass")])),
                       highlightedColor: BrandColor(r: 1, g: 1, b: 1, alpha: 1.0),
                       shadowColor: BrandColor(r:0.5,g:0.5,b:0.5,alpha: 1.0),
-                      gradientColor:[BrandColor(r: 0.623, g: 0.247, b: 0.149, alpha: 1.0),
-                        BrandColor(r: 1.0, g: 0.301, b: 1, alpha: 0.682)]
+                      gradientColor:[BrandColor(r: 0.149, g: 0.247, b: 0.623, alpha: 1.0),
+                                     BrandColor(r: 0.682, g: 0.301, b: 1, alpha: 1.0)]
                       
                       )
-        let newCityRef = db.collection("Cards").document("ICICI Emeralde")
+        let newCityRef = db.collection("Cards").document("SBI Elite")
         try?newCityRef.setData(from:newCard)
 
     }

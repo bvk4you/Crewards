@@ -10,12 +10,12 @@ import Firebase
 import FirebaseFirestoreSwift
 
 
-struct ICICIEmeralde {
+struct HSBCPlatinum {
     let db  = Firestore.firestore()
 
     func create()->Void{
             var newCard = Card(
-                title: "Emeralde",id: 4,gracePeriod: "20-50", bank: "ICICI", interestPerMonth: 3.35,creditLimit: 0,
+                title: "Platinum",id: 7,gracePeriod: "20-50", bank: "HSBC", interestPerMonth: 3.35,creditLimit: 0,
 
                       partners: [],
                       contactLess: true,
@@ -44,7 +44,7 @@ struct ICICIEmeralde {
                         BrandColor(r: 1.0, g: 0.301, b: 1, alpha: 0.682)]
                       
                       )
-        let newCityRef = db.collection("Cards").document("ICICI Emeralde")
+        let newCityRef = db.collection("Cards").document("HSBC Platinum")
         try?newCityRef.setData(from:newCard)
 
     }
