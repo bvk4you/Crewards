@@ -1,9 +1,8 @@
 //
 //  CardView.swift
-//  BankCards
+//  Crewards
 //
-//  Created by Fernando Moya de Rivas on 10/11/2019.
-//  Copyright © 2019 Fernando Moya de Rivas. All rights reserved.
+//  Created by vabhaske on 24/07/20.
 //
 
 import SwiftUI
@@ -18,11 +17,11 @@ struct CardView: View {
                     HStack(alignment: .top, spacing:20) {
                         Spacer()
                         self.cardLogo(for: geometry)
-                    }.padding(EdgeInsets(top:0,leading:0,bottom:25,trailing:5))
+                    }.padding(EdgeInsets(top:10,leading:0,bottom:geometry.size.width * 0.46 - 50,trailing:5))
                     HStack {
                         self.title
                         Spacer()
-                    }.padding(.leading,5)
+                    }.padding([.leading, .bottom],5)
                     
                 }.shadow(color:self.getRGBColor(col: card.highlightedColor!), radius: 5, x: 0, y: 0)
             }
@@ -30,8 +29,8 @@ struct CardView: View {
             .shape(type: .rectangle)
             .animation(type: .linear())
 
-            .frame(width:100,// geometry.size.width-150,
-                    height:60)// geometry.size.width * 0.40)
+            .frame(width:geometry.size.width-100,
+                    height:geometry.size.width * 0.46)
                 .background(LinearGradient(gradient: self.getGradient(colors:card.gradientColor),
                                            startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0)))
                 .cornerRadius(5)
@@ -55,7 +54,7 @@ extension CardView {
     var title: some View {
            VStack(alignment: .leading, spacing: 3) {
                Group {
-                Text(self.card.title!).font(.system(size: 10,weight:.medium)).padding(.all, 0.0)
+                Text(self.card.title!).font(.system(size: 14,weight:.semibold)).padding(.all, 0.0)
                }
                .foregroundColor(self.getRGBColor(col:card.highlightedColor!))
            }
@@ -80,7 +79,7 @@ extension CardView {
         Image(card.bank!)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: 20,alignment: .top)
+            //.frame(height: 20,alignment: .top)
     }
     
     var cardHolderName: some View {

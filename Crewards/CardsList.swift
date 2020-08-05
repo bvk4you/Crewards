@@ -11,6 +11,8 @@ import SkeletonUI
 struct CardsList: View {
     @State var isPresented = false
     @ObservedObject var ccData = CCData()
+    @Environment(\.presentationMode) var presentationMode
+    @State private var showingFilterSheet = false
     init() {
         let appearance = UITableViewCell.appearance()
         appearance.selectionStyle = .none
@@ -18,109 +20,77 @@ struct CardsList: View {
         UITableView.appearance().separatorStyle = .none
     }
     
-    func cardHighlightsView(card:Card) -> some View {
-        return VStack {
-            HStack {
-                Text("Great value for money")
-                    .font(.system(size: 14, weight:.semibold, design: .default))
-                .skeleton(with: card.id == -1)
-                .shape(type: .rectangle)
-                .animation(type: .linear())
-
-            }
-            Spacer()
-            
-            Text(card.benefits?.vouchers?.isEmpty ?? false ? "text" : card.benefits?.vouchers?[2]?.description?.replacingOccurrences(of: "\\n", with: "\n"))                .font(.system(size: 12, weight:.light, design: .default))
-            .skeleton(with: card.id == -1)
-                .shape(type: .rectangle)
-                .animation(type:.linear())
-
-            Spacer(minLength:20)
-            HStack(alignment: .center,spacing: 10) {
-                ForEach(card.categories ?? [],id :\.self){ category  in
-                    Image(uiImage: UIImage(systemName:category.iconName)?.withRenderingMode(.alwaysTemplate))
-                        .foregroundColor(category.iconColor)
-
-                }
-            }.padding(.bottom,10)
-            .skeleton(with: card.id == -1)
-            .shape(type: .rectangle)
-            .animation(type: .linear())
-
-        }
-        
-    }
+   
     func horView() -> some View {
         GeometryReader { geo in
             
-            SkeletonList (with:self.ccData.cards,quantity: 6)  { loading, card in
-                    
-                    VStack {
-                        ZStack {
-                            if(self.isPresented)
-                            {
-                                HStack {
-                                    CardView(card:card ?? self.ccData.getEmptyCard(),geometry: geo)
-                                        .padding(.horizontal,0)
-                                        .transition(.moveUpWardsWhileFadingIn)
-                                        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-                                    Spacer()
-                                    self.cardHighlightsView(card:card ?? self.ccData.getEmptyCard())
-                                    
-                                }
-                                
-                            }
-                            else
-                            {
-                                HStack {
-                                    CardView(card:card ?? self.ccData.getEmptyCard(),geometry: geo)
-                                        .padding(.horizontal,0)
-                                    Spacer()
-                                    self.cardHighlightsView(card:card ?? self.ccData.getEmptyCard())
-                                }
-                                
-                                
-                            }
-                            NavigationLink(destination: EmptyView()) {
-                                EmptyView()
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                            
-                            
-                        }
-                        Divider()
-                    
-                    
-                }
-                
+            SkeletonList (with:self.ccData.cards,quantity: 6)  { loading, card1 in
+               ProductCard(card:card1 ?? self.ccData.getEmptyCard(),geometry: geo, buttonHandler: nil)
             }
                 
-            .navigationBarTitle(Text("Crewards"), displayMode: .inline)
+            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+            .navigationBarTitle(Text(""), displayMode: .inline)
+            .navigationBarItems(
+                // leading: Button("Back"){self.presentationMode.wrappedValue.dismiss()},
+                trailing: NavigationLink(destination: SessionInfo()) {
+                    Image(systemName: "questionmark.circle")
+                        .imageScale(.large)
+                        .accessibility(label: Text("user profile"))
+            })
         }
-        
     }
+    
     var body: some View {
         NavigationView {
             ZStack {
                 self.horView()
-                    
                     .padding(.horizontal,0)
+                Spacer()
+                    
                     .onAppear(){
                         self.isPresented = true
                         self.ccData.load()
-                        self.ccData.addNewCards()
+                        //  self.ccData.addNewCards()
                 }
                     
                 .onDisappear(){
                     self.isPresented = false
                 }
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                            NavigationLink(destination: SessionInfo()) {
+                            Image(systemName: "arrow.up.arrow.down.circle")
+                                .imageScale(.large)
+                                .accessibility(label: Text("user profile"))
+                                .font(.system(.largeTitle))
+                                .frame(width: 47, height: 47)
+                                .foregroundColor(Color.white)
+                                .onTapGesture {
+                                    self.showingFilterSheet=true
+                                }
+                            
+                        }
+                        .buttonStyle(PlainButtonStyle())
+
+                        .background(Color.blue)
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                        .sheet(isPresented: $showingFilterSheet) {
+                            AppView()
+                            // action sheet here
+                            }
+                    }
+                }
             }
         }
-        
-        
     }
-    
-    
 }
 
 struct CardsList_Previews: PreviewProvider {
