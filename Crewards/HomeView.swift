@@ -25,23 +25,25 @@ struct TabbarView: View {
             Image(systemName: image)
                 .imageScale(.large)
             Text(text)
+            
         }
     }
     
     var body: some View {
         TabView(selection: $selectedTab) {
             CardsList().tabItem{
-                self.tabbarItem(text: "Home", image: "film")
+                self.tabbarItem(text: "All", image: "creditcard.fill")
             }.tag(Tab.home)
-            AppView().tabItem{
+            DiscoverView().tabItem{
                 self.tabbarItem(text: "Discover", image: "square.stack")
             }.tag(Tab.discover)
-            AppView().tabItem{
-                self.tabbarItem(text: "Fan Club", image: "star.circle.fill")
-            }.tag(Tab.fanClub)
-            AppView().tabItem{
-                self.tabbarItem(text: "My Lists", image: "heart.circle")
+            OffersView().tabItem{
+                self.tabbarItem(text: "Offers", image: "indianrupeesign.circle")
             }.tag(Tab.myLists)
+            MyCardsView().tabItem{
+                self.tabbarItem(text: "You", image: "person.crop.circle")
+            }.tag(Tab.fanClub)
+            
         }.navigationBarTitle("Home")
     }
 }
