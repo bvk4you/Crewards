@@ -1,9 +1,8 @@
 //
-//  FormViews.swift
-//  RoastedNotes
+//  CustomInput.swift
+//  Crewards
 //
-//  Created by Ben McMahen on 2019-06-19.
-//  Copyright © 2019 Ben McMahen. All rights reserved.
+//  Created by vabhaske on 24/07/20.
 //
 
 import SwiftUI
@@ -33,6 +32,7 @@ struct CustomInput : View {
              .font(Font.title.bold())
             .keyboardType(.phonePad)
             .textContentType(.telephoneNumber)
+             .disableAutocorrection(true)
             
         }
     }

@@ -1,9 +1,8 @@
 //
 //  InlineAlert.swift
-//  julienne
+//  Crewards
 //
-//  Created by Ben McMahen on 2019-06-27.
-//  Copyright © 2019 Ben McMahen. All rights reserved.
+//  Created by vabhaske on 24/07/20.
 //
 
 import SwiftUI

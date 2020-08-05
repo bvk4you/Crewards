@@ -5,6 +5,7 @@
 //  Created by vabhaske on 24/07/20.
 //
 
+
 import Foundation
 import UIKit
 class TextBindingManager: ObservableObject {
