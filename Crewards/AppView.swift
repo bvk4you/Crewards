@@ -71,7 +71,7 @@ struct AppView : View {
 //            )
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button("Back"){self.presentationMode.wrappedValue.dismiss()},
-                                    trailing: NavigationLink(destination: SessionInfo().environmentObject(session)) {
+                                    trailing: NavigationLink(destination: SessionInfo()) {
                                                         Image(systemName: "person.crop.circle")
                                                             .imageScale(.large)
                                                             .accessibility(label: Text("user profile"))
@@ -84,7 +84,6 @@ struct AppView : View {
           
        }
         .onAppear {
-            self.fetchRecipes()
             }
                                                                                                                                                                                                                                                                   }
 }
