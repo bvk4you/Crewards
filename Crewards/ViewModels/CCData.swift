@@ -52,6 +52,11 @@ class CCData: ObservableObject{
         HDFCInfinia().create()
         HDFCRegalia().create()
         ICICIEmeralde().create()
+    
+    CitiPremierMiles().create()
+    HDFCDinersBlack().create()
+    HSBCPlatinum().create()
+    SBIElite().create()
     }
     func load()
     {
