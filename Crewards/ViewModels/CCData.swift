@@ -14,6 +14,7 @@ class CCData: ObservableObject{
     let db  = Firestore.firestore()
    // @Published var crewards: CrewardsModel?
     @Published var cards:[Card]
+    @Published var sortFilterData:SortFilterModel?
     
     init() {
         cards = []
@@ -72,9 +73,33 @@ class CCData: ObservableObject{
             self.cards = documents.compactMap { queryDocumentSnapshot -> Card? in
               return try? queryDocumentSnapshot.data(as: Card.self)
             }
-
+           
+            
         }
         
     }
+    func loadSortFilterData()
+    {
+        db.collection("SortFilterData").getDocuments() { (querySnapshot, err) in
+            guard let documents = querySnapshot?.documents else {
+              print("No documents")
+              return
+            }
+            for document in querySnapshot!.documents {
+                           print("\(document.documentID) => \(document.data())")
+                
+                       }
+            let array = documents.compactMap { queryDocumentSnapshot -> SortFilterItem? in
+              return try? queryDocumentSnapshot.data(as: SortFilterItem.self)
+            }
+            self.sortFilterData = SortFilterModel(selectedCategory: array[0], allItems: array)
+            print("\(self.sortFilterData )")
+
+           
+            
+        }
+        
+    }
+
     
 }

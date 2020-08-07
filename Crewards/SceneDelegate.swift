@@ -29,8 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let session = SessionStore()
+            let ccData = CCData()
+
             session.listen()
-            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(session))
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(session)
+                            .environmentObject(ccData))
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -8,7 +8,6 @@ import SkeletonUI
 struct ProductCard: View {
     var card:Card?
     var geometry: GeometryProxy
-    
     var buttonHandler: (()->())?
     
     
@@ -31,6 +30,7 @@ struct ProductCard: View {
                     .foregroundColor(Color.gray)
                     .skeleton(with: self.card?.id! == -1)
                     .shape(type: .rectangle)
+                     .multiline(lines: 2, scales: [1: 0.5])
                     .animation(type: .linear())
                 
                 // 'Based on:' Horizontal Category Stack
@@ -38,16 +38,10 @@ struct ProductCard: View {
                     Text("Benefits on:")
                         .font(Font.system(size: 12))
                         .fontWeight(Font.Weight.medium)
-                        .skeleton(with: self.card?.id! == -1)
-                        .shape(type: .rectangle)
-                        .animation(type: .linear())
-                    HStack {
+                        HStack {
                         ForEach(self.card?.categories ?? [],id :\.self){ category  in
                             Image(uiImage: UIImage(systemName:category.iconName)?.withRenderingMode(.alwaysTemplate))
                                 .foregroundColor(category.iconColor)
-                                .skeleton(with: self.card?.id! == -1)
-                                .shape(type: .rectangle)
-                                .animation(type: .linear())
                             
                             
                         }
@@ -70,7 +64,9 @@ struct ProductCard: View {
                     }
                 }
                 .padding([.top, .bottom], 8)
-                
+                .skeleton(with: self.card?.id! == -1)
+                .shape(type: .rectangle)
+                .animation(type: .linear())
                 // Horizontal Line separating details and price
                 Rectangle()
                     .foregroundColor(Color.gray.opacity(0.3))
@@ -113,6 +109,7 @@ struct ProductCard: View {
         .background(Color.white)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 2)
+        
     }
 }
 

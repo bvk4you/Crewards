@@ -58,7 +58,7 @@ struct Card: Codable, Identifiable {
     }
 }
 
-enum CardCategory : String,Codable {
+enum CardCategory : String,Codable,CaseIterable {
     case grocery
     case hotels
     case shopping
