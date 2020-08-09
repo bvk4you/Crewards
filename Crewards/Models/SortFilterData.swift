@@ -15,5 +15,11 @@ struct SortFilterModel :Decodable{
     var selectedCategory : SortFilterItem
     var allItems:[SortFilterItem]
 }
+struct SortFilterState:Decodable {
+    var sortOn = "id"
+    var categoryOptions = ["All"]
+    //var categoryFilters:[String]
+    
+}
 
-
+ 

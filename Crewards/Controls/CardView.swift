@@ -25,12 +25,12 @@ struct CardView: View {
                     
                 }.shadow(color:self.getRGBColor(col: card.highlightedColor!), radius: 5, x: 0, y: 0)
             }
-            .skeleton(with: card.id == -1)
-            .shape(type: .rectangle)
-            .animation(type: .linear())
+//            .skeleton(with: card.id == -1)
+//            .shape(type: .rectangle)
+//            .animation(type: .linear())
 
-            .frame(width:geometry.size.width-100,
-                    height:geometry.size.width * 0.46)
+            .frame(width:self.geometry.size.width - 100,
+                   height:self.geometry.size.width * 0.46)
                 .background(LinearGradient(gradient: self.getGradient(colors:card.gradientColor),
                                            startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0)))
                 .cornerRadius(5)

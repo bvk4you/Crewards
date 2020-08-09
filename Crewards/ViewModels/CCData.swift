@@ -15,7 +15,7 @@ class CCData: ObservableObject{
    // @Published var crewards: CrewardsModel?
     @Published var cards:[Card]
     @Published var sortFilterData:SortFilterModel?
-    
+    @Published var sortFilterState = SortFilterState()
     init() {
         cards = []
     }
@@ -61,6 +61,27 @@ class CCData: ObservableObject{
     }
     func load()
     {
+        
+//        let cardsRef = db.collection("Cards")
+//                         .whereField("categories", arrayContainsAny: ["shopping","insurance"])
+//           // .order(by: "id")
+//
+//        cardsRef.getDocuments(){ (querySnapshot, err) in
+//            guard let documents = querySnapshot?.documents else {
+//              print("No documents")
+//              return
+//            }
+//            for document in querySnapshot!.documents {
+//                           print("\(document.documentID) => \(document.data())")
+//
+//                       }
+//             self.cards = documents.compactMap { queryDocumentSnapshot -> Card? in
+//                          return try? queryDocumentSnapshot.data(as: Card.self)
+//                        }
+//
+//        }
+        
+
         db.collection("Cards").getDocuments() { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
               print("No documents")
@@ -68,16 +89,49 @@ class CCData: ObservableObject{
             }
             for document in querySnapshot!.documents {
                            print("\(document.documentID) => \(document.data())")
-                
+
                        }
             self.cards = documents.compactMap { queryDocumentSnapshot -> Card? in
               return try? queryDocumentSnapshot.data(as: Card.self)
             }
-           
-            
+
+
         }
         
     }
+    fileprivate func baseQuery() -> Query {
+      return Firestore.firestore().collection("Cards")
+    }
+
+    
+    func loadWithFilter(filter:SortFilterState)
+    {
+        var filtered = baseQuery()
+        if(filter.categoryOptions.count > 0) {
+            filtered = filtered.whereField("categories", arrayContainsAny: filter.categoryOptions)
+        }
+        if(filter.sortOn != nil) {
+        filtered = filtered.order(by: filter.sortOn)
+        }
+
+               filtered.getDocuments(){ (querySnapshot, err) in
+                   guard let documents = querySnapshot?.documents else {
+                     print("No documents")
+                     return
+                   }
+                   for document in querySnapshot!.documents {
+                                  print("\(document.documentID) => \(document.data())")
+
+                              }
+                    self.cards = documents.compactMap { queryDocumentSnapshot -> Card? in
+                                 return try? queryDocumentSnapshot.data(as: Card.self)
+                               }
+
+               }
+               
+        
+    }
+
     func loadSortFilterData()
     {
         db.collection("SortFilterData").getDocuments() { (querySnapshot, err) in
