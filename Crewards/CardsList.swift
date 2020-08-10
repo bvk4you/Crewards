@@ -164,16 +164,23 @@ struct BottomCardView: View {
                     .cornerRadius(3)
                     .opacity(0.1)
                 HStack{
-                    Button(action:{ self.isPresented=false}){
+                    Button(action:{
+                        self.sortState = self.ccData.sortFilterState
+                            self.isPresented=false
+                        
+                    }){
                         Text("X")
                     }.padding(.trailing,20)
                     
                     Text("Sort/Filter")
                     .font(.system(size: 16, weight: .bold))
                     Spacer()
-                    Text("CLEAR ALL")
-                    .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color.orange)
+                    Button(action: {self.sortState = SortFilterState()}){
+                        Text("CLEAR ALL")
+                        .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Color.orange)
+                    }
+                   
 
                 }
 
@@ -261,15 +268,21 @@ struct BottomCardView: View {
             }).padding(.trailing,10)
             }
 
-//            .onReceive(self.ccData.$sortFilterData) {test in
-//                                      print("Combine \(test)")
-//                self.currentItem = test?.selectedCategory
-//                self.editingDone = false
-//
-//                              }
+            .onReceive(self.ccData.$sortFilterState) {test in
+                                      print("Combine \(test)")
+                self.sortState = test
+
+                }
+            .onReceive(self.ccData.$sortFilterData) {test in
+                                      print("Combine \(test)")
+                self.currentItem = test?.selectedCategory
+
+                }
+
         }
             
         .onAppear {
+            self.sortState = self.ccData.sortFilterState
             self.currentItem = self.ccData.sortFilterData?.selectedCategory
             self.editingDone = false
 

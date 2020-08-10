@@ -102,7 +102,14 @@ class CCData: ObservableObject{
     fileprivate func baseQuery() -> Query {
       return Firestore.firestore().collection("Cards")
     }
-
+//    func getSortFilterState() -> SortFilterState
+//    {
+//        return self._sortFilterState
+//    }
+    func resetSortFilterState()
+    {
+        self.sortFilterState = SortFilterState()
+    }
     
     func loadWithFilter(filter:SortFilterState)
     {
@@ -113,7 +120,8 @@ class CCData: ObservableObject{
         if(filter.sortOn != nil) {
         filtered = filtered.order(by: filter.sortOn)
         }
-
+        self.cards = []
+        self.sortFilterState = filter
                filtered.getDocuments(){ (querySnapshot, err) in
                    guard let documents = querySnapshot?.documents else {
                      print("No documents")

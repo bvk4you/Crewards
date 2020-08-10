@@ -19,20 +19,19 @@ struct ProductCard: View {
             
             // Stack bottom half of card
             VStack(alignment: .leading, spacing: 6) {
-                Text("title")
-                Text("title")
+                Text(self.card?.title)
                     .fontWeight(Font.Weight.heavy)
-//                    .skeleton(with: self.card?.id! == -1)
-//                    .shape(type: .rectangle)
-//                    .animation(type: .linear())
+                    .skeleton(with: self.card?.id! == -1)
+                    .shape(type: .rectangle)
+                    .animation(type: .linear())
                 
                 Text(self.card?.benefits?.vouchers?.isEmpty ?? false ? "" : self.card?.benefits?.vouchers?[2]?.description?.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(Font.custom("HelveticaNeue-Bold", size: 10))
                     .foregroundColor(Color.gray)
-//                    .skeleton(with: self.card?.id! == -1)
-//                    .shape(type: .rectangle)
-                //     .multiline(lines: 2, scales: [1: 0.5])
-                   // .animation(type: .linear())
+                    .skeleton(with: self.card?.id! == -1)
+                    .shape(type: .rectangle)
+                     .multiline(lines: 2, scales: [1: 0.5])
+                    .animation(type: .linear())
                 
                 // 'Based on:' Horizontal Category Stack
                 HStack(alignment: .center, spacing: 6) {
@@ -53,22 +52,21 @@ struct ProductCard: View {
                         Text("Vouchers:")
                             .font(Font.system(size: 12))
                             .fontWeight(Font.Weight.medium)
-//                            .skeleton(with: self.card?.id! == -1)
-//                            .shape(type: .rectangle)
-                           // .animation(type: .linear())
+                            .skeleton(with: self.card?.id! == -1)
+                            .shape(type: .rectangle)
+                            .animation(type: .linear())
 
                         Text("\(self.card!.categories!.count)")
                             .font(Font.custom("HelveticaNeue", size: 14))
-//                            .skeleton(with: self.card?.id! == -1)
-//                            .shape(type: .rectangle)
-                            //.animation(type: .linear())
+                            .skeleton(with: self.card?.id! == -1)
+                            .shape(type: .rectangle)
+                            .animation(type: .linear())
                     }
                 }
                 .padding([.top, .bottom], 8)
-//                .skeleton(with: self.card?.id! == -1)
-//                .shape(type: .rectangle)
-                //.animation(type: .linear())
-                // Horizontal Line separating details and price
+                .skeleton(with: self.card?.id! == -1)
+                .shape(type: .rectangle)
+                .animation(type: .linear())
                 Rectangle()
                     .foregroundColor(Color.gray.opacity(0.3))
                     .frame(width: nil, height: 1, alignment: .center)
@@ -92,9 +90,9 @@ struct ProductCard: View {
                     }
                     
                 }.padding([.top, .bottom], 8)
-                    //.skeleton(with: self.card?.id! == -1)
-                    //.shape(type: .rectangle)
-                   // .animation(type: .linear())
+                    .skeleton(with: self.card?.id! == -1)
+                    .shape(type: .rectangle)
+                    .animation(type: .linear())
                 
                 
             }
