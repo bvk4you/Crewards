@@ -64,6 +64,17 @@ struct SortFilterView: View {
                     .foregroundColor(self.sortState.sortOn == item  ? Color.black : Color.gray)
           }.eraseToAnyView()
     }
+    func rewardsView(item:Double) -> some View {
+          return  HStack {
+                    Image("icons8-checked")
+                        .font(.system(size: 16, weight: .medium))                                                .foregroundColor(self.sortState.rewardRange == item  ? Color.green : Color.gray)
+
+                Text(String("More than \(item)%"))
+                    .font(.system(size: 12, weight: self.sortState.rewardRange == item ? .bold : .medium))
+                    .foregroundColor(self.sortState.rewardRange == item  ? Color.black : Color.gray)
+          }.eraseToAnyView()
+    }
+
 
         var body: some View {
             Group {
@@ -176,6 +187,16 @@ struct SortFilterView: View {
                                         }
                                         
                                     }
+                                    
+                                case "Rewards":
+                                   ForEach(self.currentItem?.options ?? [],id:\.self) { item in
+                                       Button(action:{
+                                        self.sortState.rewardRange = Double(item)!
+                                       }){
+                                        rewardsView(item: Double(item)!)
+                                       }
+                                       
+                                   }
                                 
                                 default: Text("")
                                 }

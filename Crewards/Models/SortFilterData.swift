@@ -20,6 +20,7 @@ struct SortFilterState:Decodable {
     var source = "server"
     var categoryOptions = [CardCategory]()
     var benefitsOptions = [BenefitsCategory]()
+    var rewardRange = 0.0
     //var categoryFilters:[String]
     
 }

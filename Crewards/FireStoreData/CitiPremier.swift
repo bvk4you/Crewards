@@ -27,7 +27,7 @@ struct CitiPremierMiles {
 
                       foreignTransactions: ForeignTransactions(markupFees: 3.5, rewardRate: 0.5),
                       insurance: Insurance(creditShield: 100000, airDeath: 5000000, medicalAbroad: 0),
-                      rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:5.0,maxRate:0.5,utilityBills:5,expiryTime:0),
+                      rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:2.0,maxRate:10,utilityBills:5,expiryTime:0),
 
                 benefits:[BenefitsCategory.vouchers,BenefitsCategory.memberhips],
                 benefitsDetails: Benefits(                           vouchers:[Voucher(brand: "Welcome Gift", description: "Welcome e-gift Voucher worth Rs. 3,000 from any of the following brands: Bata/Hush Puppies, Pantaloons, Aditya Birla Fashion, Shoppers Stop and Yatra.com", value:3000.0,isMilestoneLinked: false),

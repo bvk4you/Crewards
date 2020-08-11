@@ -44,7 +44,7 @@ struct CardsList: View {
             self.isPresented = true
             self.ccData.load()
             self.ccData.loadSortFilterData()
-            //self.ccData.addNewCards()
+            self.ccData.addNewCards()
         }
         
         .onDisappear(){

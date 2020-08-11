@@ -27,7 +27,7 @@ struct SBIPrime {
 
                       foreignTransactions: ForeignTransactions(markupFees: 3.5, rewardRate: 0.5),
                       insurance: Insurance(creditShield: 100000, airDeath: 5000000, medicalAbroad: 0),
-                      rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:5.0,maxRate:0.5,utilityBills:5,expiryTime:0),
+                rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:1.0,maxRate:6.0,utilityBills:5,expiryTime:0),
 
                 benefits: [BenefitsCategory.vouchers],
                 benefitsDetails: Benefits(
@@ -45,6 +45,7 @@ struct SBIPrime {
                                      BrandColor(r: 0.682, g: 0.301, b: 1, alpha: 1.0)]
                       
                       )
+
         let newCityRef = db.collection("Cards").document("SBI Prime")
         try?newCityRef.setData(from:newCard)
 

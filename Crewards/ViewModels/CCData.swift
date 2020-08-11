@@ -98,6 +98,10 @@ class CCData: ObservableObject{
         if(self.sortFilterState.benefitsOptions.count > 0){
             return true
         }
+        if(self.sortFilterState.rewardRange > 0)
+        {
+            return true
+        }
         return false
     }
 
@@ -133,19 +137,20 @@ class CCData: ObservableObject{
         {
                 cards = cards.filter(
                     {
-                        let arr = $0.benefits!.map { $0 }
-                        
-                        let listSet = Set(arr)
-                        let findListSet = Set( filter.benefitsOptions)
+                        let listSet = Set($0.benefits!.map { $0 })
 
-                     let newset =  listSet.intersection(findListSet)
+                        let findListSet = Set(filter.benefitsOptions)
+
+                       return  !listSet.intersection(findListSet).isEmpty
                         
-                        return !newset.isEmpty
                 
                     }
                 )
         }
-
+       cards = cards.filter( {
+            $0.rewards?.maxRate ?? 0 >= filter.rewardRange
+        })
+        
         switch(filter.sortOn)
         {
         case "interestPerMonth":
