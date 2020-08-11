@@ -25,7 +25,7 @@ struct ProductCard: View {
                     .shape(type: .rectangle)
                     .animation(type: .linear())
                 
-                Text(self.card?.benefits?.vouchers?.isEmpty ?? false ? "" : self.card?.benefits?.vouchers?[2]?.description?.replacingOccurrences(of: "\\n", with: "\n"))
+                Text(self.card?.benefits?.count == 0 ?? 0  ? "" : self.card?.benefitsDetails?.vouchers?[2]?.description?.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(Font.custom("HelveticaNeue-Bold", size: 10))
                     .foregroundColor(Color.gray)
                     .skeleton(with: self.card?.id! == -1)
@@ -82,7 +82,7 @@ struct ProductCard: View {
                         .foregroundColor(Color.gray)
                     Spacer()
                     
-                    Text("BUY NOW")
+                    Text("APPLY NOW")
                         .fontWeight(Font.Weight.heavy)
                         .foregroundColor(Color(red: 231/255, green: 119/255, blue: 112/255))
                         .onTapGesture {
@@ -98,7 +98,6 @@ struct ProductCard: View {
             }
             .padding(12)
         }.onAppear(){
-            print("card on appear , tile \(self.card?.title)")
         }
         .background(Color.white)
         .cornerRadius(15)

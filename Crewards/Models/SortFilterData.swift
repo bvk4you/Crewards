@@ -17,7 +17,9 @@ struct SortFilterModel :Decodable{
 }
 struct SortFilterState:Decodable {
     var sortOn = "id"
-    var categoryOptions = ["All"]
+    var source = "server"
+    var categoryOptions = [CardCategory]()
+    var benefitsOptions = [BenefitsCategory]()
     //var categoryFilters:[String]
     
 }

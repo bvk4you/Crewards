@@ -22,7 +22,6 @@ struct CrewardsModel: Codable {
     }
 }
 
-
 // MARK: - Card
 struct Card: Codable, Identifiable {
     let title: String?
@@ -45,7 +44,8 @@ struct Card: Codable, Identifiable {
 
     let rewards: RewardRate?
 
-    let benefits: Benefits?
+    let benefits: [BenefitsCategory]?
+    let benefitsDetails: Benefits?
     
     let highlightedColor:BrandColor?
     let shadowColor:BrandColor?
@@ -54,17 +54,25 @@ struct Card: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case eligibility, partners, gracePeriod, bank, interestPerMonth
         case benefits, title, categories, tier, creditLimit, foreignTransactions, insurance, rewards, fees, brand,id
-        case highlightedColor,shadowColor,gradientColor,contactLess
+        case highlightedColor,shadowColor,gradientColor,contactLess, benefitsDetails
     }
 }
 
+enum BenefitsCategory : String,Codable,CaseIterable {
+    case vouchers = "vouchers"
+    case memberhips = "memberships"
+    case loungeacess = "Lounge Access"
+        enum CodingKeys {
+        case vouchers,memberhips,loungeacess
+    }
+}
 enum CardCategory : String,Codable,CaseIterable {
-    case grocery
-    case hotels
-    case shopping
-    case flights
-    case gifts
-    case insurance 
+    case grocery = "grocery"
+    case hotels = "hotels"
+    case shopping = "shopping"
+    case flights = "flights"
+    case gifts = "gifts"
+    case insurance = "insurance"
     enum CodingKeys {
         case grocery,hotels,shopping,flights,gifts,insurance
     }

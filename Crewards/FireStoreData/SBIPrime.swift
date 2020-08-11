@@ -21,7 +21,7 @@ struct SBIPrime {
                       contactLess: true,
                       eligibility: Eligibility(income: 0, ITR: 0, description: "N/A"),
                       brand: ["visa","master"],
-                      categories: [CardCategory.grocery,CardCategory.shopping,CardCategory.flights,CardCategory.hotels,CardCategory.insurance],
+                      categories: [CardCategory.grocery,CardCategory.shopping,CardCategory.insurance],
                       tier: ["premium"],
                       fees: Fees(joiningFees: 2999, renewalFees: 2999, welcomeRewards: WelcomeRewards(cashback: 0, points: 0, pointsValueinINR: 0, description: ""), waiverCondition: "Joining/Renewal Fee: Rs.2,999+Tax (Renewal Fee Waived on 3 Lakh spend)"),
 
@@ -29,7 +29,8 @@ struct SBIPrime {
                       insurance: Insurance(creditShield: 100000, airDeath: 5000000, medicalAbroad: 0),
                       rewards: RewardRate(entertainment:2.5, grocery: 2.5, shopping: 0, food: 2.5, travel: 0, others: 0.5,minRate:5.0,maxRate:0.5,utilityBills:5,expiryTime:0),
 
-                      benefits: Benefits(
+                benefits: [BenefitsCategory.vouchers],
+                benefitsDetails: Benefits(
                            vouchers:[Voucher(brand: "Welcome Gift", description: "Welcome e-gift Voucher worth Rs. 3,000 from any of the following brands: Bata/Hush Puppies, Pantaloons, Aditya Birla Fashion, Shoppers Stop and Yatra.com", value:3000.0,isMilestoneLinked: false),
                                      Voucher(brand: "Yatra/Pantaloons", description: "E-Gift Voucher worth Rs. 7,000 from Yatra.com/Pantaloons on achieving annual spends of Rs. 5 Lakhs", value: 7000, isMilestoneLinked: true),
                                      Voucher(brand:"Trident Privilege Membership",description: "Enjoy complimentary Trident Privilege Red Tier Membership\\nGet exclusive 1,000 Welcome Points on registration",value: 0,isMilestoneLinked: false),

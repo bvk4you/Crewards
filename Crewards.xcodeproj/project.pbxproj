@@ -20,6 +20,7 @@
 		145002D324CDDBCB008C9A8E /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145002D224CDDBCB008C9A8E /* CardsList.swift */; };
 		147D3D6C24D2D25200DAFF48 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D3D6B24D2D25200DAFF48 /* Collection+Ext.swift */; };
 		148A3F8524DC790F004110BA /* SortFilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A3F8424DC790E004110BA /* SortFilterData.swift */; };
+		149840BB24E15D1F00033EB4 /* SortFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149840BA24E15D1F00033EB4 /* SortFilterView.swift */; };
 		14A768E324C8809200D737D7 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E224C8809200D737D7 /* SessionInfo.swift */; };
 		14A768E724C880A500D737D7 /* InlineAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E624C880A500D737D7 /* InlineAlert.swift */; };
 		14A768E924C880AB00D737D7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A768E824C880AB00D737D7 /* Session.swift */; };
@@ -97,6 +98,7 @@
 		145002D224CDDBCB008C9A8E /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
 		147D3D6B24D2D25200DAFF48 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
 		148A3F8424DC790E004110BA /* SortFilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterData.swift; sourceTree = "<group>"; };
+		149840BA24E15D1F00033EB4 /* SortFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterView.swift; sourceTree = "<group>"; };
 		14A768E224C8809200D737D7 /* SessionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		14A768E624C880A500D737D7 /* InlineAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InlineAlert.swift; sourceTree = "<group>"; };
 		14A768E824C880AB00D737D7 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				14A768F424C89E1700D737D7 /* auth */,
 				14A8D90B24C701F9007CD350 /* ContentView.swift */,
 				145002D224CDDBCB008C9A8E /* CardsList.swift */,
+				149840BA24E15D1F00033EB4 /* SortFilterView.swift */,
 				145002BF24CDD4B1008C9A8E /* HomeView.swift */,
 				14BC5ACC24D9DDCD008FC263 /* DiscoverView.swift */,
 				14BC5ACE24D9DDF2008FC263 /* OffersView.swift */,
@@ -652,6 +655,7 @@
 				14BC5ACB24D99426008FC263 /* HSBCPlatinum.swift in Sources */,
 				14A768FE24C9748700D737D7 /* KeyboardHeightPublisher.swift in Sources */,
 				14BC5ACA24D99426008FC263 /* HDFCDinersBlack.swift in Sources */,
+				149840BB24E15D1F00033EB4 /* SortFilterView.swift in Sources */,
 				14A7690924C99D2F00D737D7 /* ImageCache.swift in Sources */,
 				14A768EB24C880B200D737D7 /* CustomButton.swift in Sources */,
 				14B2209C24D82F66004DC9FB /* SBIPrime.swift in Sources */,
