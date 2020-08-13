@@ -43,6 +43,7 @@ struct Card: Codable, Identifiable,Equatable {
     let tier: [String]?
 
     let fees: Fees?
+    let cashAdvance:CashAdvance?
     let foreignTransactions: ForeignTransactions?
     let insurance: Insurance?
 
@@ -58,7 +59,7 @@ struct Card: Codable, Identifiable,Equatable {
     enum CodingKeys: String, CodingKey {
         case eligibility, partners, gracePeriod, bank, interestPerMonth
         case benefits, title, categories, tier, creditLimit, foreignTransactions, insurance, rewards, fees, brand,id
-        case highlightedColor,shadowColor,gradientColor,contactLess, benefitsDetails
+        case highlightedColor,shadowColor,gradientColor,contactLess, benefitsDetails,cashAdvance
     }
 }
 
@@ -136,6 +137,19 @@ struct Eligibility: Codable,Equatable {
         case description
     }
 }
+
+// MARK: - Eligibility
+struct CashAdvance: Codable,Equatable {
+    let limit:String?
+    let freeCreditPeriod: String?
+    let financeCharges:Double?
+    let financeChargeDetails:String?
+    let fees:Double?
+    let feesDetails:String?
+    let internationATMS:String?
+
+}
+
 
 
 

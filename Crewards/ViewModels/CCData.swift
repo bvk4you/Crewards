@@ -45,6 +45,7 @@ class CCData: ObservableObject{
               categories: [],
               tier: [],
               fees: Fees(joiningFees: 2999, renewalFees: 2999, welcomeRewards: WelcomeRewards(cashback: 0, points: 0, pointsValueinINR: 0, description: ""), waiverCondition: "Joining/Renewal Fee: Rs.2,999+Tax (Renewal Fee Waived on 3 Lakh spend)"),
+            cashAdvance: CashAdvance(limit: "Upto 80% of the credit limit, with a maximum of Rs. 15,000 per day", freeCreditPeriod: "None", financeCharges: 3.35, financeChargeDetails: "Upto Rs.25 or 3.35% per month (40.2% per annum) whichever is higher, from the date of withdrawal", fees: 2.5, feesDetails: "SBI ATMs or other ATMs: 2.5% of transaction amount, subject to a minimum of Rs. 500",internationATMS: "2.5% of transaction amount, subject to a minimum of Rs. 500"),
 
               foreignTransactions: ForeignTransactions(markupFees: 3.5, rewardRate: 0.5),
               insurance: Insurance(creditShield: 100000, airDeath: 5000000, medicalAbroad: 0),
