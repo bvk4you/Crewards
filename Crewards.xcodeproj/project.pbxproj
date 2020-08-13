@@ -50,6 +50,7 @@
 		14A8D91F24C701FB007CD350 /* CrewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8D91E24C701FB007CD350 /* CrewardsTests.swift */; };
 		14A8D92A24C701FB007CD350 /* CrewardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8D92924C701FB007CD350 /* CrewardsUITests.swift */; };
 		14A8D93824C70220007CD350 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14A8D93724C70220007CD350 /* GoogleService-Info.plist */; };
+		14AF181D24E3CC3000DD47A5 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AF181C24E3CC3000DD47A5 /* ProgressBar.swift */; };
 		14B2209C24D82F66004DC9FB /* SBIPrime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209B24D82F65004DC9FB /* SBIPrime.swift */; };
 		14B2209E24D83033004DC9FB /* HDFCInfinia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209D24D83033004DC9FB /* HDFCInfinia.swift */; };
 		14B220A024D83075004DC9FB /* HDFCRegalia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2209F24D83075004DC9FB /* HDFCRegalia.swift */; };
@@ -63,6 +64,7 @@
 		14BC5ACF24D9DDF2008FC263 /* OffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC5ACE24D9DDF2008FC263 /* OffersView.swift */; };
 		14BC5AD124D9DE18008FC263 /* MyCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC5AD024D9DE18008FC263 /* MyCardsView.swift */; };
 		14BC5AD324DA932E008FC263 /* ProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC5AD224DA932E008FC263 /* ProductCard.swift */; };
+		14D1C69724E4333700604029 /* NoSeparatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1C69624E4333700604029 /* NoSeparatorList.swift */; };
 		2657E4D242B51D155D3253F6 /* Pods_Crewards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8169F54FAC19C1A911BB3D /* Pods_Crewards.framework */; };
 		299D68FCA929B7698BDA9E11 /* Pods_CrewardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2511C199703203A25FE271CC /* Pods_CrewardsTests.framework */; };
 		6426FCE6BAD75CA622D50E54 /* Pods_Crewards_CrewardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B239529A61A407A33E9205 /* Pods_Crewards_CrewardsUITests.framework */; };
@@ -135,6 +137,7 @@
 		14A8D92B24C701FB007CD350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A8D93724C70220007CD350 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14A8D93B24C71FD7007CD350 /* Crewards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Crewards.entitlements; sourceTree = "<group>"; };
+		14AF181C24E3CC3000DD47A5 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		14B2209B24D82F65004DC9FB /* SBIPrime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBIPrime.swift; sourceTree = "<group>"; };
 		14B2209D24D83033004DC9FB /* HDFCInfinia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFCInfinia.swift; sourceTree = "<group>"; };
 		14B2209F24D83075004DC9FB /* HDFCRegalia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDFCRegalia.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		14BC5ACE24D9DDF2008FC263 /* OffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersView.swift; sourceTree = "<group>"; };
 		14BC5AD024D9DE18008FC263 /* MyCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsView.swift; sourceTree = "<group>"; };
 		14BC5AD224DA932E008FC263 /* ProductCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCard.swift; sourceTree = "<group>"; };
+		14D1C69624E4333700604029 /* NoSeparatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSeparatorList.swift; sourceTree = "<group>"; };
 		18E6440CD71CFFF9D280778E /* Pods-CrewardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewardsTests.release.xcconfig"; path = "Target Support Files/Pods-CrewardsTests/Pods-CrewardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		249799BEDB931FECB4CB2C58 /* Pods-CrewardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrewardsTests.debug.xcconfig"; path = "Target Support Files/Pods-CrewardsTests/Pods-CrewardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2511C199703203A25FE271CC /* Pods_CrewardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrewardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				14BC5AD224DA932E008FC263 /* ProductCard.swift */,
+				14D1C69624E4333700604029 /* NoSeparatorList.swift */,
+				14AF181C24E3CC3000DD47A5 /* ProgressBar.swift */,
 				14A7690324C99D2F00D737D7 /* Spinner.swift */,
 				14A768EC24C880B700D737D7 /* CustomInput.swift */,
 				14A768E624C880A500D737D7 /* InlineAlert.swift */,
@@ -641,6 +647,7 @@
 				14A768F324C887B800D737D7 /* PhoneSignInView.swift in Sources */,
 				14A8D90524C701F9007CD350 /* AppDelegate.swift in Sources */,
 				14A8D90724C701F9007CD350 /* SceneDelegate.swift in Sources */,
+				14AF181D24E3CC3000DD47A5 /* ProgressBar.swift in Sources */,
 				14A768E324C8809200D737D7 /* SessionInfo.swift in Sources */,
 				14BC5ACF24D9DDF2008FC263 /* OffersView.swift in Sources */,
 				14A7690824C99D2F00D737D7 /* Spinner.swift in Sources */,
@@ -668,6 +675,7 @@
 				14A8D90A24C701F9007CD350 /* Crewards.xcdatamodeld in Sources */,
 				144BDA9324D5752300FF9085 /* Color+Ext.swift in Sources */,
 				14A768FF24C9748700D737D7 /* KeyboardAdaptive.swift in Sources */,
+				14D1C69724E4333700604029 /* NoSeparatorList.swift in Sources */,
 				141E377324C75F0C00B7B4B6 /* CCData.swift in Sources */,
 				14BC5AD124D9DE18008FC263 /* MyCardsView.swift in Sources */,
 				14A7690E24C99D9F00D737D7 /* View+Ext.swift in Sources */,

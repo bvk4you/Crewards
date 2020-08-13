@@ -23,7 +23,11 @@ struct CrewardsModel: Codable {
 }
 
 // MARK: - Card
-struct Card: Codable, Identifiable {
+struct Card: Codable, Identifiable,Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let title: String?
     let id: Int?
     let gracePeriod: String?
@@ -58,7 +62,7 @@ struct Card: Codable, Identifiable {
     }
 }
 
-enum BenefitsCategory : String,Codable,CaseIterable {
+enum BenefitsCategory : String,Codable,CaseIterable,Equatable {
     case vouchers = "vouchers"
     case memberhips = "memberships"
     case loungeacess = "Lounge Access"
@@ -66,7 +70,7 @@ enum BenefitsCategory : String,Codable,CaseIterable {
         case vouchers,memberhips,loungeacess
     }
 }
-enum CardCategory : String,Codable,CaseIterable {
+enum CardCategory : String,Codable,CaseIterable,Equatable {
     case grocery = "grocery"
     case hotels = "hotels"
     case shopping = "shopping"
@@ -122,7 +126,7 @@ struct BrandColor:Codable {
 
 
 // MARK: - Eligibility
-struct Eligibility: Codable {
+struct Eligibility: Codable,Equatable {
     let income, ITR: Int?
     let description: String?
 
@@ -136,13 +140,13 @@ struct Eligibility: Codable {
 
 
 // MARK: - WelcomeRewards
-struct WelcomeRewards: Codable {
+struct WelcomeRewards: Codable,Equatable {
     let cashback, points, pointsValueinINR: Int?
     let description: String?
 }
 
 // MARK: - Fees
-struct Fees: Codable {
+struct Fees: Codable,Equatable {
     let joiningFees: Int?
     let renewalFees: Int?
     let welcomeRewards: WelcomeRewards?
@@ -150,17 +154,17 @@ struct Fees: Codable {
 }
 
 // MARK: - ForeignTransactions
-struct ForeignTransactions: Codable {
+struct ForeignTransactions: Codable,Equatable {
     let markupFees, rewardRate: Double?
 }
 
 // MARK: - Insurance
-struct Insurance: Codable {
+struct Insurance: Codable,Equatable {
     let creditShield, airDeath, medicalAbroad: Int?
 }
 
 // MARK: - Rewards
-struct RewardRate: Codable {
+struct RewardRate: Codable,Equatable {
   let entertainment, grocery, shopping : Double?
   let food, travel, others: Double?
   let minRate,maxRate:Double?
@@ -171,7 +175,7 @@ struct RewardRate: Codable {
 
 
 // MARK: - Voucher
-struct Voucher: Codable {
+struct Voucher: Codable,Equatable {
     let brand: String?
     let description: String?
     let value:Double?
@@ -179,19 +183,19 @@ struct Voucher: Codable {
 }
 
 // MARK: - Benefits
-struct Benefits: Codable {
+struct Benefits: Codable,Equatable {
     let vouchers: [Voucher?]?
     let loungeAccess: LoungeAccess?
 }
 
 // MARK: - LoungeAccess
-struct LoungeAccess: Codable {
+struct LoungeAccess: Codable,Equatable {
     let domesticAirports: LoungeDetails?
     let internationalAirports: [LoungeDetails]?
 }
 
 // MARK: - DomesticAirports
-struct LoungeDetails: Codable {
+struct LoungeDetails: Codable,Equatable {
     let charges, freeVisitsPerQuarter, freeVisitsPerYear: Int?
     let unlimited, supplementaryBenefit: Bool?
     let condtions:String?

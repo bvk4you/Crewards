@@ -10,12 +10,13 @@ struct SortFilterItem :Decodable{
     var name : String
     var options : [String]
     var isSingleSelection: Bool
+    var title: String
 }
 struct SortFilterModel :Decodable{
     var selectedCategory : SortFilterItem
     var allItems:[SortFilterItem]
 }
-struct SortFilterState:Decodable {
+struct SortFilterState:Decodable,Equatable {
     var sortOn = "id"
     var source = "server"
     var categoryOptions = [CardCategory]()

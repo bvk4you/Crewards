@@ -10,14 +10,14 @@ import SwiftUI
 struct CardView: View {
     
     var card: Card
-    var geometry: GeometryProxy
+    //var geometry: GeometryProxy
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
                 Group {
                     HStack(alignment: .top, spacing:20) {
                         Spacer()
-                        self.cardLogo(for: geometry)
-                    }.padding(EdgeInsets(top:10,leading:0,bottom:geometry.size.width * 0.46 - 50,trailing:5))
+                        self.cardLogo()
+                    }.padding(EdgeInsets(top:10,leading:0,bottom:UIScreen.main.bounds.width * 0.46 - 50,trailing:5))
                     HStack {
                         self.title
                         Spacer()
@@ -29,8 +29,8 @@ struct CardView: View {
             .shape(type: .rectangle)
             .animation(type: .linear())
 
-            .frame(width:self.geometry.size.width - 100,
-                   height:self.geometry.size.width * 0.46)
+            .frame(width:UIScreen.main.bounds.width - 100,
+                   height:UIScreen.main.bounds.width * 0.46)
                 .background(LinearGradient(gradient: self.getGradient(colors:card.gradientColor),
                                            startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0)))
                 .cornerRadius(5)
@@ -75,7 +75,7 @@ extension CardView {
         }
     }
     
-    func cardLogo(for geometry: GeometryProxy) -> some View {
+    func cardLogo() -> some View {
         Image(card.bank!)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -97,11 +97,11 @@ extension CardView {
             .font(.system(size: 16, weight: .medium))
     }
     
-    func chip(for geometry: GeometryProxy) -> some View {
+    func chip() -> some View {
         Image("chip")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: geometry.size.height / 12)
+            .frame(height: UIScreen.main.bounds.height / 12)
             .fixedSize()
     }
     
@@ -109,7 +109,7 @@ extension CardView {
         Image(systemName: "radiowaves.right")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: geometry.size.height / 30)
+            .frame(width:  UIScreen.main.bounds.height / 30)
             .foregroundColor(self.getRGBColor(col:card.highlightedColor!))
             .fixedSize()
     }
@@ -150,7 +150,7 @@ struct CardView_Previews: PreviewProvider {
                                     BrandColor(r: 0.682, g: 0.301, b: 1, alpha: 1.0)]
                      
                      )
-                ,geometry: geo)
+                )
                 .padding(32)
 //                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
 //                .previewDisplayName("iPhone SE")

@@ -104,7 +104,10 @@ class CCData: ObservableObject{
         }
         return false
     }
-
+    func updateSortFilterSelectedTab(item:SortFilterItem)
+    {
+        self.sortFilterData?.selectedCategory = item
+    }
     func resetSortFilterState(filter:SortFilterState)
     {
         self.sortFilterState = filter

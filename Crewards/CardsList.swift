@@ -9,17 +9,32 @@ import SwiftUI
 import UIKit
 import SkeletonUI
 import Combine
+extension CGRect {
+    var center : CGPoint {
+        return CGPoint(x:self.midX, y:self.midY)
+    }
+}
 struct CardsList: View {
     @State var isPresented = false
     @EnvironmentObject var ccData:CCData
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var showDetailView = false
+    @State private var isPresentingDetailView = false
+
+    
+    @State var selectedCard:Card?
+    
     @State private var showingFilterSheet = false
-    @State var bottomState = CGSize.zero
+    @State var bottomState = CGFloat(0)
+    @State var detailViewSize = CGSize(width: 0, height: 0)
+
     @State var sortFilter:[String:SortFilterModel]?
     @State var sortState = SortFilterState()
+    @State var cardGeometry:GeometryProxy?
     
-        init() {
+    
+    init() {
         let appearance = UITableViewCell.appearance()
         appearance.selectionStyle = .none
         appearance.accessoryType = .none
@@ -29,22 +44,21 @@ struct CardsList: View {
         
         
     }
- @ViewBuilder   func mainView() -> some View{
+    @ViewBuilder   func mainView() -> some View{
         ZStack(alignment: .top) {
-            listView()
+            
+            VStack {
+                listView()
 
-             Text("Showing \(self.ccData.cards.count) Cards")
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color.gray)
-                .opacity(self.ccData.cards.count == 0 ? 0 : 1)
-                .animation(.easeInOut)
-                .padding(.bottom,0)
+            }
+
         }
         .onAppear(){
             self.isPresented = true
+            
             self.ccData.load()
             self.ccData.loadSortFilterData()
-            self.ccData.addNewCards()
+            //self.ccData.addNewCards()
         }
         
         .onDisappear(){
@@ -57,37 +71,45 @@ struct CardsList: View {
 
     }
     
-  @ViewBuilder  func listView() -> some View {
-        GeometryReader { geo in
-            
-            SkeletonList (with:self.ccData.cards,quantity: 2)  { loading, card1 in
-                NavigationLink(destination: AppView()) {
-                    ProductCard(card:card1 ?? self.ccData.getEmptyCard(),geometry: geo, buttonHandler: nil)
+    @ViewBuilder  func listView() -> some View {
+        GeometryReader { geometry in
+            ZStack {
+
+                SkeletonList (with:self.ccData.cards,quantity: 2)  { loading, card1 in
+                    NavigationLink(destination:
+                                    ProductCard(card:card1 ?? self.ccData.getEmptyCard(), buttonHandler: nil)
+                    ) {
+                        GeometryReader { bounds in
+                            ProductCard(card:card1 ?? self.ccData.getEmptyCard(), buttonHandler: nil)
+
+                        }.frame(minHeight:350)
+
+                    }
+
                 }
-                
             }
-                
-            
+
+
         }
     }
     
-  @ViewBuilder  func getContentView() -> some View {
+    @ViewBuilder  func getContentView() -> some View {
         switch(self.ccData.state){
         case .idle:
-             mainView()
-        
+            mainView()
+
         case .requestedFetch:
-             mainView()
+            mainView()
 
         case .fetchRequestFailed:
             Text("Request Failed")
             
         case .fetchRequestSucceededWithData:
-             mainView()
+            mainView()
 
             
         case .fetchRequestSucceededWithNoResults:
-             Text("No Results found")
+            Text("No Results found")
 
         }
     }
@@ -95,44 +117,48 @@ struct CardsList: View {
     var body: some View {
         NavigationView {
             getContentView()
-                .navigationBarTitle(Text(""), displayMode: .inline)
+                .navigationBarTitle(
+                    Text("")
+                    ,
+                    displayMode: .inline)
                 .navigationBarItems(
+                    leading: Text(self.ccData.isFilterApplied() ? "":
+                                    "All Cards"
+                    )
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(Color(.secondaryLabel))
+                    .opacity(self.ccData.cards.count == 0 ? 0 : 1)
+                    ,
                     trailing:
-                        
-                        Button(action:
-                                {
-                                    self.showingFilterSheet = true
-                                    let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                        HStack {
+                            Text(self.ccData.isFilterApplied() ?
+                                    "\(self.ccData.cards.count)" : ""
+                            )
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Color(.secondaryLabel))
+                            .opacity(self.ccData.cards.count == 0 ? 0 : 1)
+
+                            Button(action:
+                                    {
+                                        self.showingFilterSheet = true
+                                        let impactMed = UIImpactFeedbackGenerator(style: .heavy)
                                         impactMed.impactOccurred()
-
-                                }
-                                )
-                                {
-                                    //Image(systemName: "arrow.up.arrow.down.circle")
-                            Image("icons8-filter")
-                                        .foregroundColor(self.ccData.isFilterApplied() ? Color.red: Color.black)
-                                        //.background(self.ccData.isFilterApplied() ? Color.blue: Color.gray)
-                                        .accessibility(label: Text("sort or filter"))
-                                        .contentShape(Rectangle())
-                                        .offset(x: self.ccData.cards.count>0 || self.ccData.isFilterApplied() ? 0 : -100, y: self.ccData.cards.count>0 || self.ccData.isFilterApplied() ? 0 : -100)
-                                       // .frame(width: self.ccData.cards.count>0 ? 60 : 0, height: self.ccData.cards.count>0 ? 60 : 0)
-    //                                    .cornerRadius(38.5)
-    //                                    .shadow(color: Color.black.opacity(0.3),radius: 3,x: 3, y: 3)
-    //                                    .transition(.slide)
-    //                                    .animation(.easeInOut(duration: 0.2))
-
-
+                                    }
+                            )
+                            {
+                                Image("icons8-filter")
+                                    .foregroundColor(self.ccData.isFilterApplied() ? Color.red: Color(.label))
+                                    .accessibility(label: Text("sort or filter"))
+                                    .contentShape(Rectangle())
+                                    .offset(x: self.ccData.cards.count>0 || self.ccData.isFilterApplied() ? 0 : -100, y: self.ccData.cards.count>0 || self.ccData.isFilterApplied() ? 0 : -100)
                             }
-                        .sheet(isPresented: self.$showingFilterSheet, onDismiss: {})
-                        {
-                                
-                            
-                            SortFilterView(isPresented:self.$showingFilterSheet)
-                                .environmentObject(self.ccData)
-
+                            .sheet(isPresented: self.$showingFilterSheet, onDismiss: {})
+                            {
+                                SortFilterView(isPresented:self.$showingFilterSheet)
+                                    .environmentObject(self.ccData)
+                            }
                         }
-                               
-                        )
+                )
             
         }
     }

@@ -7,15 +7,14 @@ import Combine
 import SkeletonUI
 struct ProductCard: View {
     var card:Card?
-    var geometry: GeometryProxy
+    //var geometry: GeometryProxy
     var buttonHandler: (()->())?
-    
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             
-            CardView(card:self.card ?? CCData().getEmptyCard(),geometry: geometry)
-                .padding(.top,10)
+            CardView(card:self.card ?? CCData().getEmptyCard())
+                .padding(.horizontal)
             
             // Stack bottom half of card
             VStack(alignment: .leading, spacing: 6) {
@@ -27,7 +26,7 @@ struct ProductCard: View {
                 
                 Text(self.card?.benefits?.count == 0 ?? 0  ? "" : self.card?.benefitsDetails?.vouchers?[2]?.description?.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(Font.custom("HelveticaNeue-Bold", size: 10))
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color(.secondaryLabel))
                     .skeleton(with: self.card?.id! == -1)
                     .shape(type: .rectangle)
                      .multiline(lines: 2, scales: [1: 0.5])
@@ -67,10 +66,16 @@ struct ProductCard: View {
                 .skeleton(with: self.card?.id! == -1)
                 .shape(type: .rectangle)
                 .animation(type: .linear())
-                Rectangle()
-                    .foregroundColor(Color.gray.opacity(0.3))
-                    .frame(width: nil, height: 1, alignment: .center)
-                    .padding([.leading, .trailing], -12)
+                
+                Divider()
+                    .skeleton(with: self.card?.id! == -1)
+                        .shape(type: .rectangle)
+                        .animation(type: .linear())
+
+//                Rectangle()
+//                    .foregroundColor(Color(.secondaryLabel).opacity(0.3))
+//                    .frame(width: nil, height: 1, alignment: .center)
+//                    .padding([.leading, .trailing], -12)
                 
                 // Price and Buy Now Stack
                 HStack(alignment: .center, spacing: 4) {
@@ -79,7 +84,8 @@ struct ProductCard: View {
                     Text("% per month")
                         .font(Font.system(size: 13))
                         .fontWeight(Font.Weight.bold)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color(.secondaryLabel))
+
                     Spacer()
                     
                     Text("APPLY NOW")
@@ -97,11 +103,19 @@ struct ProductCard: View {
                 
             }
             .padding(12)
-        }.onAppear(){
+            
         }
-        .background(Color.white)
+        //.offset(y:isDetailView ? geometry.frame(in: .global).minY : 0)
+        //.frame(width:self.detailViewSize.width,height: self.detailViewSize.height)
+        .background(Color(.secondarySystemBackground))
+        .foregroundColor(Color(.label))
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.2), radius: 7, x: 0, y: 2)
+        .shadow(color: Color(.label).opacity(0.2), radius: 7, x: 0, y: 2)
+        .onAppear {
+
+        
+        }
+
         
     }
 }

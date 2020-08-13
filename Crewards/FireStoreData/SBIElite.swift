@@ -14,7 +14,7 @@ struct SBIElite {
     let db  = Firestore.firestore()
 
     func create()->Void{
-            var newCard = Card(
+            let newCard = Card(
                 title: "Elite",id: 8,gracePeriod: "20-50", bank: "SBI", interestPerMonth: 3.45,creditLimit: 0,
 
                       partners: [],
